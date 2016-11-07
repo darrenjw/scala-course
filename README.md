@@ -2,7 +2,7 @@
 
 ## Scala for Statistical Computing Short Course
 
-### 16th-18th May 2016, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
+### 16th-18th May 2017, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
 
 **NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/#dates), [cost](http://www.jumpingrivers.com/#cost), [registration](http://www.jumpingrivers.com/#registration) and [course descriptions](http://www.jumpingrivers.com/#description). The description for this course is repeated below.**
 
