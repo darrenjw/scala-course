@@ -1,14 +1,12 @@
-# scala-course
+# Scala for Statistical Computing Short Course
 
-## Scala for Statistical Computing Short Course
-
-### 16th-18th May 2017, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
+## 16th-18th May 2017, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
 
 **NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/#dates), [cost](http://www.jumpingrivers.com/#cost), [registration](http://www.jumpingrivers.com/#registration) and [course descriptions](http://www.jumpingrivers.com/#description). The description for this course is repeated below.**
 
 This GitHub repository will be used to share public materials relating to the course. Course participants who are familiar with Git should clone this repo and pull changes in advance of the course. In particular, instructions for downloading and installing the necessary software and setting up your laptop ready to start the course will be shared here at least two weeks before the first day of the course.
 
-### Outline course description
+## Outline course description
 
 This course is aimed at statisticians and data scientists already familiar with a dynamic programming language (such as R, Python or Octave) who would like to learn how to use [Scala](http://www.scala-lang.org/). Scala is a free modern, powerful, strongly-typed, functional programming language, well-suited to statistical computing and data science applications. In particular, it is fast and efficient, runs on the Java virtual machine (JVM), and is designed to easily exploit modern multi-core and distributed computing architectures.
 
