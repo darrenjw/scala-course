@@ -1,4 +1,4 @@
-# Scala for Statistical Computing Short Course
+# Scala for Statistical Computing and Data Science Short Course
 
 ## 16th-18th May 2017, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
 
