@@ -2,7 +2,7 @@
 
 ## Setting up your laptop for the course
 
-It will save time during the course if everyone sets up their laptop with some essential required software in advance. The basic requirements are:
+It will save time during the course if everyone sets up their laptop with some essential required software in advance. Since Scala runs on the JVM, and the JVM is platform independent, it doesn't really matter what OS is used - in particular, Linux, Windows and Mac should all be fine. The basic requirements are:
 
 * Download and install Java 8 (OpenJDK is fine) - *requires root/administrator access*
 * Download (or clone) this course code repository
