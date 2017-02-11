@@ -55,7 +55,7 @@ People starting out with programming in Scala are likely to benefit from writing
 
 ### Download Apache Spark
 
-In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.1.0](http://www.eu.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz) package to their system in advance of the course. You should probably make sure that you have a tool on your system which can unpack a "tgz" file, but there is no need to "install" anything - we will walk through installation/setup as part of the course.
+In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.1.0](http://www.eu.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz) package to their system in advance. You should probably make sure that you have a tool on your system which can unpack a "tgz" file, but there is no need to "install" anything - we will walk through installation/setup as part of the course.
 
 ## Further information
 
