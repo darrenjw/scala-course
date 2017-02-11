@@ -2,7 +2,7 @@
 
 ## 16th-18th May 2017, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
 
-**NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/#dates), [cost](http://www.jumpingrivers.com/#cost), [registration](http://www.jumpingrivers.com/#registration) and [course descriptions](http://www.jumpingrivers.com/#description). The description for this course is repeated below.**
+**NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/dates), cost, registration and [course descriptions](http://www.jumpingrivers.com/courses). The description for this course is repeated below.**
 
 This GitHub repository will be used to share public materials relating to the course. Course participants who are familiar with Git should clone this repo and pull changes in advance of the course. In particular, instructions for downloading and installing the necessary software and setting up your laptop ready to start the course will be shared here at least two weeks before the first day of the course.
 
