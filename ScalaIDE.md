@@ -14,7 +14,7 @@
 
 The ScalaIDE is based on Eclipse, which is a JVM application, and is therefore easy to install as a user without admin/root privilages.
 
-From the download site, select the version of the IDE for your OS. Unpack this in a convenient place on your system and follow any installation instructions. Running it should be a simple matter of running the eclipse jar.
+From the download site, select the version of the IDE for your OS. Unpack this in a convenient place on your system and follow any installation instructions. Running it should be a simple matter of running the eclipse jar. See the [Documentation](http://scala-ide.org/documentation.html) for further details.
 
 To use the ScalaIDE with sbt projects, you must also install the eclipse plugin for sbt, `sbteclipse`.  This should be as simple as adding the line:
 ```scala
@@ -32,7 +32,7 @@ sbt eclipse
 ```
 to analyse the project and create eclipse project files for it. Then start the ScalaIDE. If it asks about a workspace, make sure you select something *different to* the sbt project directory. Then import the project using the *Import Wizard* (under the File menu) to import *Existing Projects into Workspace*. You may need to repeat this process if you make significant changes to the `build.sbt` file.
 
-Once you are up-and-running, the Eclipse provides fairly sophisticated IDE functionality. Some commonly used commands include:
+Once you are up-and-running, Eclipse provides fairly sophisticated IDE functionality. Some commonly used commands include:
 
 * Shift-Ctrl-F - Reformat source file
 * Shift-Ctrl-W - Close all windows (from package explorer)
