@@ -15,11 +15,8 @@
 * [sbt](http://www.scala-sbt.org/)
   * [Documentation](http://www.scala-sbt.org/0.13/docs/index.html)
     * [Getting started guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html)
-* [ScalaIDE](http://scala-ide.org/) - based on Eclipse
-  * [Documentation](http://scala-ide.org/documentation.html)
-* [Ensime](http://ensime.org/)
-  * [Installing with Emacs](http://ensime.org/editors/emacs/install/)
-  * [Emacs Ensime User Guide](http://ensime.org/editors/emacs/userguide/)
+* [ScalaIDE](ScalaIDE.md) - my ScalaIDE instructions
+* [Ensime](Ensime.md) - my Emacs/Ensime/sbt instructions
 * [Breeze](https://github.com/scalanlp/breeze/)
   * [Wiki](https://github.com/scalanlp/breeze/wiki)
     * [Quickstart](https://github.com/scalanlp/breeze/wiki/Quickstart)
