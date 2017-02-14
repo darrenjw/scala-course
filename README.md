@@ -4,7 +4,7 @@
 
 **NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/dates), cost, registration and [course descriptions](http://www.jumpingrivers.com/courses). The description for this course is repeated below.**
 
-This GitHub repository will be used to share public materials relating to the course. Course participants who are familiar with Git should clone this repo and pull changes in advance of the course. In particular, instructions for downloading and installing the necessary software and setting up your laptop ready to start the course will be shared here at least two weeks before the first day of the course.
+*Registered course participants should bookmark the [Start Here](StartHere.md) page. Please carefully follow the [laptop setup instructions](Setup.md) in advance of the start of the course.*
 
 ## Outline course description
 
