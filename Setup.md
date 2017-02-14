@@ -39,7 +39,11 @@ Git users should be able to clone the repo with a command like:
 git clone git@github.com:darrenjw/scala-course.git
 ```
 
-Others should be able to download [this ZIP file](https://github.com/darrenjw/scala-course/archive/master.zip).
+Others should be able to download [this ZIP file](https://github.com/darrenjw/scala-course/archive/master.zip). Linux users can download from a terminal with a command like:
+
+```bash
+wget https://github.com/darrenjw/scala-course/archive/master.zip
+```
 
 
 ### Download and install sbt
@@ -55,7 +59,13 @@ People starting out with programming in Scala are likely to benefit from writing
 
 ### Download Apache Spark
 
-In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.1.0](http://www.eu.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz) package to their system in advance. You should probably make sure that you have a tool on your system which can unpack a "tgz" file, but there is no need to "install" anything - we will walk through installation/setup as part of the course.
+In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.1.0](http://www.eu.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz) package to their system in advance. Linux users can download from a terminal with a command like:
+
+```bash
+wget http://www.eu.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.7.tgz
+```
+
+You should make sure that you have a tool on your system which can unpack a "tgz" file (no issue for Linux users), but there is no need to "install" Spark - we will walk through installation/setup as part of the course.
 
 ## Further information
 
