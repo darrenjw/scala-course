@@ -12,8 +12,25 @@
       * [Parallel collections](http://docs.scala-lang.org/overviews/parallel-collections/overview)
       * [Scaladoc](http://docs.scala-lang.org/overviews/scaladoc/overview.html)
   * [API Docs](http://www.scala-lang.org/api/current/)
-
-
+* [Breeze](https://github.com/scalanlp/breeze/)
+  * [Wiki](https://github.com/scalanlp/breeze/wiki)
+    * [Quickstart](https://github.com/scalanlp/breeze/wiki/Quickstart)
+    * [Linear algebra cheat sheet](https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet)
+  * [API Docs](http://www.scalanlp.org/api/breeze/)
+* [Apache Spark](http://spark.apache.org/)
+  * [Downloads](http://spark.apache.org/downloads.html)
+  * [Documentation](http://spark.apache.org/docs/latest/)
+    * [Quick start](http://spark.apache.org/docs/latest/quick-start.html)
+    * [Programming guide](http://spark.apache.org/docs/latest/programming-guide.html)
+    * [SQL, DataFrames and Datasets](http://spark.apache.org/docs/latest/sql-programming-guide.html)
+    * [MLlib](http://spark.apache.org/docs/latest/ml-guide.html)
+      * [ML Pipelines](http://spark.apache.org/docs/latest/ml-pipeline.html)
+      * [Classification and regression](http://spark.apache.org/docs/latest/ml-classification-regression.html)
+  * [API Docs](http://spark.apache.org/docs/latest/api/scala/)
+* [Cats](http://typelevel.org/cats/)
+  * [Type classes](http://typelevel.org/cats/typeclasses.html)
+  * [Data types](http://typelevel.org/cats/datatypes.html)
+  * [API Docs](http://typelevel.org/cats/api/cats/)
 
 * [Darren's Scala links](https://github.com/darrenjw/djwhacks/blob/master/scala/ScalaLinks.md) - a much less selective and less well curated set of Scala links
 
