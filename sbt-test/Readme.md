@@ -8,4 +8,8 @@ For good measure, you might also want to run `sbt test` from this directory. Thi
 
 This directory is also useful for starting a REPL including commonly used dependencies. Just running `sbt console` from this directory will give a Scala console including dependencies on libraries such as Breeze, Breeze-viz and Cats, which can be very useful for interactive experiments.
 
+For further information about sbt, read through the [sbt getting started guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html).
+
+#### eof
+
 
