@@ -23,7 +23,7 @@ If you are running a Linux (or similar) system, you may prefer to use the [OpenJ
 sudo apt-get update
 sudo apt-get -y install openjdk-8-jdk
 ```
-It should be something similar on other Linux systems. For other OS's, you may want to search the Internet for the best way to install Java on your system. You should install the full Java development kit (JDK), and not just the runtime engine (JRE). If in doubt, try the Java download page: https://java.com/en/download/
+It should be something similar on other Linux systems. For other OS's, you may want to search the Internet for the best way to install Java on your system. You should install the full Java development kit (JDK), and not just the runtime engine (JRE). If in doubt, try the Oracle Java JDK download page: http://www.oracle.com/technetwork/java/javase/downloads
 
 To check whether you have Java installed correctly, type `java -version` into a terminal window. If you get a version number of the form 1.8.x you should be fine.
 
