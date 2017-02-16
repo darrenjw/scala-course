@@ -43,9 +43,14 @@ to the end of your init file and restarting Emacs, but see the [Installing with 
 
 To use Ensime with sbt, you also need to install the Ensime plugin for sbt. This should be as simple as adding the line:
 ```scala
-addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.5")
+addSbtPlugin("org.ensime" % "sbt-ensime" % "1.12.6")
 ```
-to your `~/.sbt/0.13/plugins/plugins.sbt` file. Create this file if you don't already have it. See the [Sbt plugin for Ensime](http://ensime.org/build_tools/sbt/) page for further details.
+to your `~/.sbt/0.13/plugins/plugins.sbt` file. Create this file if you don't already have it. It's also a good idea to add the lines:
+```scala
+import org.ensime.EnsimeCoursierKeys._
+ensimeServerVersion in ThisBuild := "2.0.0-SNAPSHOT"
+```
+to your `~/sbt/0.13/global.sbt` file (again, create it if you don't have it). See the [Sbt plugin for Ensime](http://ensime.org/build_tools/sbt/) page for further details.
 
 ## Using Ensime
 
