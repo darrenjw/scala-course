@@ -22,6 +22,7 @@
     * [Quickstart](https://github.com/scalanlp/breeze/wiki/Quickstart)
     * [Linear algebra cheat sheet](https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet)
   * [API Docs](http://www.scalanlp.org/api/breeze/)
+* [Spire](https://github.com/non/spire/blob/master/README.md) - numeric types library
 * [ScalaTest](http://www.scalatest.org/)
   * [User guide](http://www.scalatest.org/user_guide)
 * [ScalaCheck](https://www.scalacheck.org/)
@@ -40,6 +41,7 @@
   * [Type classes](http://typelevel.org/cats/typeclasses.html)
   * [Data types](http://typelevel.org/cats/datatypes.html)
   * [API Docs](http://typelevel.org/cats/api/cats/)
+* [Simulacrum](https://github.com/mpilquist/simulacrum/blob/master/README.md) - type class support
 
 * [Darren's Scala links](https://github.com/darrenjw/djwhacks/blob/master/scala/ScalaLinks.md) - a much less selective and less well curated set of Scala links
 
