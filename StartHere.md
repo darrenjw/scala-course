@@ -12,7 +12,9 @@ The information below is aimed primarily at course participants. In particular, 
 * [Useful links](UsefulLinks.md) - selective and curated collection of some important additional on-line resources
 * [app-template](app-template/) - Scala sbt "seed" project, for copying and editing to create a new Scala sbt project. Minimal dependencies in the sbt build file (just Breeze). Alternatively, use `sbt new` as described in the notes.
 * [sbt-test](sbt-test/) - simple Scala sbt project with lots of dependencies. See the [build.sbt](sbt-test/build.sbt) for list of dependencies. Primarily for testing correct installation of sbt and caching of commonly required dependencies. Also useful for spinning up a REPL (`sbt console`) with lots of dependencies for interactive experiments. The [src/test](sbt-test/src/test/scala/) subdirectory tree contains some basic examples of test code.
-* [Examples](examples/Readme.md) - example code from the course notes
+
+* [Fragments](fragments/Readme.md) - raw fragments of code from the notes, auto-extracted
+* [Examples](examples/Readme.md) - complete runnable example code from the course notes
 * [Exercises](exercises/Readme.md) - simple programming exercises
 
 
