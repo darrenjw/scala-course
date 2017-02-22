@@ -18,5 +18,7 @@ resolvers ++= Seq(
             "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
 )
 
+// EclipseKeys.withBundledScalaContainers := false
+
 scalaVersion := "2.12.1"
 
