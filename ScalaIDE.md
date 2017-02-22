@@ -14,7 +14,7 @@
 
 The ScalaIDE is based on Eclipse, which is a JVM application, and is therefore easy to install as a user without admin/root privilages.
 
-From the download site, select the version of the IDE for your OS. Unpack this in a convenient place on your system and follow any installation instructions. Running it should be a simple matter of running the eclipse jar. See the [Documentation](http://scala-ide.org/documentation.html) for further details.
+From the [download site](http://scala-ide.org/download/sdk.html), select the version of the IDE for your OS. Unpack this in a convenient place on your system and follow any installation instructions. Running it should be a simple matter of running the eclipse jar. See the [Documentation](http://scala-ide.org/documentation.html) for further details.
 
 To use the ScalaIDE with sbt projects, you must also install the eclipse plugin for sbt, `sbteclipse`.  This should be as simple as adding the line:
 ```scala
