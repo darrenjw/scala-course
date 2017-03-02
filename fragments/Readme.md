@@ -7,8 +7,14 @@ For complete runnable examples from the notes, instead see the [examples directo
 
 ### Code fragments by chapter
 
-* [Chapter 1: Introduction](intro.scala)
-
+1. [Introduction](intro.scala)
+2. [FP Basics](basics.scala)
+3. [Collections](collections.scala)
+4. [Breeze](breeze.scala)
+5. [Statistical modelling](stats.scala)
+6. [Tools](tools.scala)
+7. [Apache Spark](spark.scala)
+8. [Advanced topics](advanced.scala)
 
 
 
