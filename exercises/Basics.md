@@ -17,6 +17,10 @@ So we can use the SBT REPL to run functions within our project. This is extremel
 
 Implement and test a recursive function for root-finding using interval bisection. See the [detailed instructions](bisection/Readme.md) for further details.
 
+### 3. Scala exercises
+
+Start to work through the interactive [Scala tutorial](https://www.scala-exercises.org/scala_tutorial/) from [Scala exercises](https://www.scala-exercises.org/). Do the first couple of sections. Try to work through everything up to and including "Syntactic Conveniences" in any spare time you have over the next couple of days.
+
 
 #### eof
 
