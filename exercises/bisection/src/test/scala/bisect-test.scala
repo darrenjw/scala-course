@@ -1,7 +1,7 @@
 /*
-ex1-test.scala
+bisect-test.scala
 
-Tests for Exercise 1
+Tests for bisection exercise
 
  */
 
@@ -28,7 +28,7 @@ class MyTestSuite extends FunSuite {
     assert(approxEq(1.0, 1.0))
   }
 
-  import Ex1._
+  import Bisect._
 
   test("findRoot(-10.0,10.0)(x => x+1.0) == -1.0") {
     assert(approxEq(findRoot(-10.0, 10.0)(x => x + 1.0), -1.0))

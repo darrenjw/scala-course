@@ -1,9 +1,9 @@
 /*
-ex1.scala
+bisect.scala
 
  */
 
-object Ex1 {
+object Bisect {
 
 
   def findRoot(low: Double, high: Double)(f: Double => Double): Double = ???
