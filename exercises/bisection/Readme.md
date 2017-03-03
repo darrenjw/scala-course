@@ -10,7 +10,7 @@ Your function should have the type signature:
 findRoot(low: Double, high: Double)(f: Double => Double): Double
 ```
 
-You may *assume* that the sign of `f(low)` is different to the sign of `f(high)` - do not test or check for this in your code (yet) - we will come back to this in Exercise 2. Similarly, just *assume* that `low < high`.
+You may *assume* that the sign of `f(low)` is different to the sign of `f(high)` - do not test or check for this in your code (yet) - we will come back to this later. Similarly, just *assume* that `low < high`.
 
 The function should be recursive, evaluating the function at the given end points and mid-point, and then calling itself on a smaller interval where the function changes sign.
 
