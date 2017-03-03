@@ -13,9 +13,9 @@ logfact(100)
 ```
 So we can use the SBT REPL to run functions within our project. This is extremely useful for debugging.
 
-### 2. 
+### 2. Interval bisection
 
-
+Implement and test a recursive function for root-finding using interval bisection. See the [detailed instructions](bisection/Readme.md) for further details.
 
 
 #### eof
