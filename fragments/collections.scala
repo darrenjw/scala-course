@@ -1,4 +1,39 @@
 
+val l1 = List(6,7,8,9,10)
+// l1: List[Int] = List(6, 7, 8, 9, 10)
+l1.head
+// res0: Int = 6
+l1.tail
+// res1: List[Int] = List(7, 8, 9, 10)
+l1(0)
+// res2: Int = 6
+l1(2)
+// res3: Int = 8
+l1(2) = 22
+// <console>:9: error: value update is not a member of List[Int]
+//               l1(2) = 22
+//               ^
+l1
+// res5: List[Int] = List(6, 7, 8, 9, 10)
+val l2: List[Double] = List(1,2,3)
+// l2: List[Double] = List(1.0, 2.0, 3.0)
+
+
+import scala.collection.mutable
+// import scala.collection.mutable
+val l3 = mutable.MutableList(5,6,7,8,9)
+// l3: MutableList[Int] = MutableList(5, 6, 7, 8, 9)
+l3.head
+// res6: Int = 5
+l3.tail
+// res7: MutableList[Int] = MutableList(6, 7, 8, 9)
+l3(2)
+// res8: Int = 7
+l3(2) = 22
+l3
+// res10: MutableList[Int] = MutableList(5, 6, 22, 8, 9)
+
+
 val x = (0 to 4).toList
 // x: List[Int] = List(0, 1, 2, 3, 4)
 val x2 = x map { x => x * 3 }
