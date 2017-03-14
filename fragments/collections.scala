@@ -265,6 +265,62 @@ ss(Vector(2.0,3.0,4.0))
 // res1: Double = 29.0
 
 
+(1 to 12).par
+// res0: scala.collection.parallel.immutable.ParRange = ParRange(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+Vector(2,4,6,8).par
+// res1: scala.collection.parallel.immutable.ParVector[Int] = ParVector(2, 4, 6, 8)
+Array("a","b","c").par
+// res2: scala.collection.parallel.mutable.ParArray[String] = ParArray(a, b, c)
+List(1,2,3,4).par
+// res3: scala.collection.parallel.immutable.ParSeq[Int] = ParVector(1, 2, 3, 4)
+
+
+def isPrime(n: Int): Boolean = (2 until n) forall (n % _ != 0)
+// isPrime: (n: Int)Boolean
+(2 to 20) filter isPrime
+// res4: scala.collection.immutable.IndexedSeq[Int] = Vector(2, 3, 5, 7, 11, 13, 17, 19)
+((2 to 100000) filter isPrime).length
+// res5: Int = 9592
+((2 to 100000).par filter isPrime).length
+// res6: Int = 9592
+(100000000 to 100000100) filter isPrime
+// res7: scala.collection.immutable.IndexedSeq[Int] = Vector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
+(100000000 to 100000100).par filter isPrime
+// res8: scala.collection.parallel.immutable.ParSeq[Int] = ParVector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
+
+
+List().par.tasksupport.parallelismLevel
+// res16: Int = 8
+
+
+def sss(sq: Seq[Int]): Int = (sq map (x => x*x)).reduce(_+_)
+// sss: (sq: Seq[Int])Int
+sss(List(2,3,4))
+// res9: Int = 29
+sss(Vector(2,3,4))
+// res10: Int = 29
+sss(List(2,3,4).par)
+// <console>:9: error: type mismatch;
+//  found   : scala.collection.parallel.immutable.ParSeq[Int]
+//  required: Seq[Int]
+//               sss(List(2,3,4).par)
+//                               ^
+
+
+import scala.collection.GenSeq // parent of Seq and ParSeq
+// import scala.collection.GenSeq
+def ssp(sq: GenSeq[Int]): Int = (sq map (x => x*x)).reduce(_+_)
+// ssp: (sq: scala.collection.GenSeq[Int])Int
+ssp(List(2,3,4))
+// res12: Int = 29
+ssp(List(2,3,4).par)
+// res13: Int = 29
+ssp(Vector(2,3,4).par)
+// res14: Int = 29
+ssp(Array(2,3,4).par)
+// res15: Int = 29
+
+
 val x = (0 to 4).toList
 // x: List[Int] = List(0, 1, 2, 3, 4)
 val x2 = x map { x => x * 3 }
