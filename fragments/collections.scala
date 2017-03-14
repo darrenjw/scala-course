@@ -243,6 +243,18 @@ ss(Vector(1.0,2.0,3.0))
 // res9: Double = 14.0
 
 
+def ssg[T: Numeric](sq: Seq[T]): T = {
+  val num = implicitly[Numeric[T]]
+  import num._
+  (sq map (x => x*x)).sum
+  }
+// ssg: [T](sq: Seq[T])(implicit evidence$1: Numeric[T])T
+ssg(List(2,3,4))
+// res10: Int = 29
+ssg(Vector(1.0,2.0,3.0))
+// res11: Double = 14.0
+
+
 import spire.math._
 import spire.implicits._
 def ss[T: Numeric](sq: Seq[T]): T =
