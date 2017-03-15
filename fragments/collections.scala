@@ -207,18 +207,42 @@ def repD(ld: List[Double], n: Int): List[Double] =
   if (n <= 1) ld else ld ++ repD(ld,n-1)
 // repD: (ld: List[Double], n: Int)List[Double]
 repD(List(1,2,3),3)
-// res3: List[Double] = List(1.0, 2.0, 3.0, 1.0, 2.0, 3.0, 1.0, 2.0, 3.0)
+// res3: List[Double] = List(1.0,2.0,3.0,1.0,2.0,3.0,1.0,2.0,3.0)
 
 
-def rep[T](l: List[T], n: Int): List[T] =
-  if (n <=1) l else l ++ rep(l,n-1)
-// rep: [T](l: List[T], n: Int)List[T]
+def repl[T](l: List[T], n: Int): List[T] =
+  if (n <=1) l else l ++ repl(l,n-1)
+// repl: [T](l: List[T], n: Int)List[T]
+repl(List(1,2,3),3)
+// res5: List[Int] = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
+repl(List(1.0,2.0),3)
+// res6: List[Double] = List(1.0,2.0,1.0,2.0,1.0,2.0)
+repl(List("a","b","c"),2)
+// res7: List[String] = List(a, b, c, a, b, c)
+
+
+def reps[T](l: Seq[T], n: Int): Seq[T] =
+  if (n <=1) l else l ++ reps(l,n-1)
+// reps: [T](l: Seq[T], n: Int)Seq[T]
+reps(List(1,2,3),3)
+// res8: Seq[Int] = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
+reps(Vector(1.0,2.0),3)
+// res9: Seq[Double] = Vector(1.0,2.0,1.0,2.0,1.0,2.0)
+reps(Array("a","b","c"),2)
+// res10: Seq[String] = ArrayBuffer(a, b, c, a, b, c)
+
+
+import scala.collection.SeqLike
+// import scala.collection.SeqLike
+def rep[T, C <: Seq[T]](l: C with SeqLike[T,C], n: Int): C =
+  if (n <=1) l else (l ++ rep(l,n-1)).asInstanceOf[C]
+// rep: [T, C <: Seq[T]](l: C with SeqLike[T,C], n: Int)C
 rep(List(1,2,3),3)
-// res4: List[Int] = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
-rep(List(1.0,2.0),3)
-// res5: List[Double] = List(1.0, 2.0, 1.0, 2.0, 1.0, 2.0)
-rep(List("a","b","c"),2)
-// res6: List[String] = List(a, b, c, a, b, c)
+// res11: List[Int] = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
+rep(Vector(1.0,2.0),3)
+// res12: Vector[Double] = Vector(1.0,2.0,1.0,2.0,1.0,2.0)
+rep(Array("a","b","c").seq,2)
+// res13: IndexedSeq[String] = ArrayBuffer(a, b, c, a, b, c)
 
 
 def ssd(sq: Seq[Double]): Double = (sq map (x => x*x)).sum
@@ -266,27 +290,28 @@ ss(Vector(2.0,3.0,4.0))
 
 
 (1 to 12).par
-// res0: scala.collection.parallel.immutable.ParRange = ParRange(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+// res0: ParRange = ParRange(1,2,3,4,5,6,7,8,9,10,11,12)
 Vector(2,4,6,8).par
-// res1: scala.collection.parallel.immutable.ParVector[Int] = ParVector(2, 4, 6, 8)
+// res1: ParVector[Int] = ParVector(2, 4, 6, 8)
 Array("a","b","c").par
-// res2: scala.collection.parallel.mutable.ParArray[String] = ParArray(a, b, c)
+// res2: ParArray[String] = ParArray(a, b, c)
 List(1,2,3,4).par
-// res3: scala.collection.parallel.immutable.ParSeq[Int] = ParVector(1, 2, 3, 4)
+// res3: ParSeq[Int] = ParVector(1, 2, 3, 4)
 
 
-def isPrime(n: Int): Boolean = (2 until n) forall (n % _ != 0)
+def isPrime(n: Int): Boolean = (2 until n) forall (
+                                        n % _ != 0)
 // isPrime: (n: Int)Boolean
 (2 to 20) filter isPrime
-// res4: scala.collection.immutable.IndexedSeq[Int] = Vector(2, 3, 5, 7, 11, 13, 17, 19)
+// res4: IndexedSeq[Int] = Vector(2,3,5,7,11,13,17,19)
 ((2 to 100000) filter isPrime).length
 // res5: Int = 9592
 ((2 to 100000).par filter isPrime).length
 // res6: Int = 9592
 (100000000 to 100000100) filter isPrime
-// res7: scala.collection.immutable.IndexedSeq[Int] = Vector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
+// res7: IndexedSeq[Int] = Vector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
 (100000000 to 100000100).par filter isPrime
-// res8: scala.collection.parallel.immutable.ParSeq[Int] = ParVector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
+// res8: ParSeq[Int] = ParVector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
 
 
 List().par.tasksupport.parallelismLevel
