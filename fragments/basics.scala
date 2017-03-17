@@ -224,6 +224,18 @@ lfacttr(10000)
 // res7: Double = 82108.92783681446
 
 
+@annotation.tailrec
+def factbi(n: BigInt, acc: BigInt = 1): BigInt = {
+  if (n == 1) acc else
+    factbi(n-1, acc*n)
+  }
+// factbi: (n: BigInt, acc: BigInt)BigInt
+factbi(5)
+// res8: BigInt = 120
+factbi(10000)
+// res9: BigInt = 2846259680917054518906413212119...
+
+
 /*
 log-fact.scala
 Program to compute the log-factorial function
