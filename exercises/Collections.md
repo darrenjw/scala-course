@@ -22,6 +22,8 @@ c. Generalise it so that it works for any collection of `Doubles`, and check tha
 
 d. Test your function on huge collections of random *U(0,1)* quantities. What should the true mean and standard devaition be? Can you detect a difference in speed between the serial and parallel versions?
 
+e. (optional) You have probably written this code so that it computes the mean and SD using two passes over the data. Can you figure out a way to implement it using just a single pass?
+
 ### 3. Wrap interval bisection code in an Option
 
 Starting from the code you wrote for [interval bisection](./bisection/Readme.md) previously, make it safe by wrapping it in an Option. See the [detailed instructions](option/Readme.md) for further information.
