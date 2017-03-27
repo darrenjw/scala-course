@@ -42,7 +42,7 @@ wget https://github.com/darrenjw/scala-course/archive/master.zip
 
 ### Download and install sbt
 
-`sbt` is the Scala build tool. You should download, install and test this before the course starts. The *testing* part is particularly important, as it will download and cache a lot of Scala libraries on your system ready for use during the course. See my [sbt instalation page](sbt/Readme.md) for further details.
+`sbt` is the Scala build tool. You should download, install and test this before the course starts. The *testing* part is particularly important, as it will download and cache a lot of Scala libraries on your system ready for use during the course. See my [sbt installation page](sbt/Readme.md) for further details.
 
 ### Install a Scala IDE
 
