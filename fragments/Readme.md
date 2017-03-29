@@ -11,10 +11,11 @@ For complete runnable examples from the notes, instead see the [examples directo
 2. [Scala and FP Basics](basics.scala)
 3. [Scala collections library](collections.scala)
 4. [Scala Breeze](breeze.scala)
-5. [Statistical modelling](stats.scala)
-6. [Tools](tools.scala)
-7. [Apache Spark](spark.scala)
-8. [Advanced topics](advanced.scala)
+5. [Monte Carlo](monte.scala)
+6. [Statistical modelling](stats.scala)
+7. [Tools](tools.scala)
+8. [Apache Spark](spark.scala)
+9. [Advanced topics](advanced.scala)
 
 
 
