@@ -32,9 +32,11 @@ object GammaTest {
     gammaTest(N,2.0,3.0)
     gammaTest(N,1.0,2.0)
     gammaTest(N,5.0,1.0)
+    gammaTest(N,5.0,0.1)
     gammaTest(N,1.0,5.0)
     gammaTest(N,0.5,3.0)
     gammaTest(N,0.2,1.0)
+    gammaTest(N,0.2,0.1)
     gammaTest(N,0.2,4.0)
     println("Test complete")
   }
