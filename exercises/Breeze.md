@@ -21,11 +21,11 @@ Write a function with type signature
 ```scala
 rmvn(n: Int, mean: DenseVector[Double],var: DenseMatrix[Double]): DenseMatrix[Double]
 ```
-which returns a matrix with `n` rows, each row representing an iid draw from a multivariate normal with the given mean and variance matrix. Note that this can be accomplished by *post*-multiplying a matrix of iid *N(0,1)* random quantities by the *upper* Cholesky factor of the variance matrix, and then adding the mean to each row of the result.
+which returns a matrix with `n` rows, each row representing an iid draw from a multivariate normal with the given mean and variance matrix. Note that this can be accomplished by *post*-multiplying a matrix of iid *N(0,1)* random quantities by the *upper* Cholesky factor of the variance matrix, and then adding the mean to each row of the result. How can you test your code to ensure that you have implemented it correctly?
 
-### 3. Breeze viz
+### 3. Scatter-plot
 
-Write a function `pairs(mat: DenseMatrix[Double]): Figure` which produces a scatterplot matrix similar to that produced by the `pairs()` function in R. eg. for a matrix with `k` columns, the function should plot a `k * k` array of scatter plots showing each variable against each other.
+Write a function `pairs(mat: DenseMatrix[Double]): Figure` which produces a scatterplot matrix similar to that produced by the `pairs()` function in R. eg. for a matrix with `k` columns, the function should plot a `k * k` array of scatter plots showing each variable against each other. Test your code on some simulated data generated using your `rmvn` function.
 
 
 #### eof
