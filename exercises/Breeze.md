@@ -6,10 +6,7 @@
 
 * [Breeze](https://github.com/scalanlp/breeze/)
   * [Wiki](https://github.com/scalanlp/breeze/wiki)
-    * [Quickstart](https://github.com/scalanlp/breeze/wiki/Quickstart)
-    * [Linear algebra cheat sheet](https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet)
   * [API Docs](http://www.scalanlp.org/api/breeze/)
-
 
 ### 1. Review the on-line documentation
 
@@ -25,7 +22,11 @@ which returns a matrix with `n` rows, each row representing an iid draw from a m
 
 ### 3. Scatter-plot
 
-Write a function `pairs(mat: DenseMatrix[Double]): Figure` which produces a scatterplot matrix similar to that produced by the `pairs()` function in R. eg. for a matrix with `k` columns, the function should plot a `k * k` array of scatter plots showing each variable against each other. Test your code on some simulated data generated using your `rmvn` function.
+Write a function with type signature
+```scala
+pairs(mat: DenseMatrix[Double]): Figure
+```
+which produces a scatterplot matrix similar to that produced by the `pairs()` function in R. eg. for a matrix with `k` columns, the function should plot a `k * k` array of scatter plots showing each variable against each other. Test your code on some simulated data generated using your `rmvn` function.
 
 
 #### eof
