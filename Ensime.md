@@ -63,6 +63,7 @@ sbt ensimeConfig
 to analyse the project and create a `.ensime` file for it. You should probably re-run this after editing `build.sbt` or other build configuration files. Then start emacs with a command like `emacs src/main/scala/blah/*.scala &`. This will start up emacs and some basic syntax highlighting will be provided by `scala-mode`. However, you still need to start up Ensime with `M-x ensime`. Once you are up-and-running, Ensime provides fairly sophisticated IDE functionality. Some commonly used commands include:
 
 * M-x ensime - Start up Ensime
+* C-c C-v d - Scaladoc for symbol at cursor
 * C-c C-v f - Reformat source code in this buffer
 * C-c C-b c - sbt compile
 * C-c C-b r - sbt run
