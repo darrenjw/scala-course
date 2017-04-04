@@ -1,5 +1,9 @@
 /*
 monte-carlo.scala
+Integration via rejection sampling
+Integrate the standard normal PDF from -5 to 5 to get an estimate close to 1...
+Simulate points uniformly over a bounding box and look at fraction of points
+falling under the PDF
 */
 
 import scala.math._
