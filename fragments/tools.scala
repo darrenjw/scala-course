@@ -106,7 +106,7 @@ assert (1 == 1) // satisfied
 def sqrt(x: Double): Double = {
   require(x >= 0.0) // pre-condition
   val ans = math.sqrt(x)
-  assert(math.abs(x - ans*ans) < 0.00001) // post-condition
+  assert(math.abs(x-ans*ans) < 0.00001) // post-condition
   ans
 }
 
@@ -125,7 +125,7 @@ class SetSpec extends FlatSpec {
     assert(Set.empty.size == 0)
   }
 
-  it should "produce NoSuchElementException when head is invoked" in {
+  it should "throw an exception with head" in {
     assertThrows[NoSuchElementException] {
       Set.empty.head
     }
@@ -140,4 +140,20 @@ class SetSpec extends FlatSpec {
     val m = g.mean
     assert(math.abs(m - 12.0) < 0.000001)
   }
+
+
+/**
+  *  Take every th value from the stream s of type T
+  * 
+  *  @param s A Stream to be thinned
+  *  @param th Thinning interval
+  * 
+  *  @return The thinned stream, with values of
+  *  the same type as the input stream
+  */
+def thinStream[T](s: Stream[T],th: Int): Stream[T] = {
+  val ss = s.drop(th-1)
+  if (ss.isEmpty) Stream.empty else
+    ss.head #:: thinStream(ss.tail, th)
+}
 
