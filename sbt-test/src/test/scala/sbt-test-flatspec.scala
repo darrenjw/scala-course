@@ -13,6 +13,14 @@ class SetSpec extends FlatSpec {
       Set.empty.head
     }
   }
+
+  "A Gamma(3.0,4.0)" should "have mean 12.0" in {
+    import breeze.stats.distributions.Gamma
+    val g = Gamma(3.0,4.0)
+    val m = g.mean
+    assert(math.abs(m - 12.0) < 0.000001)
+  }
+
 }
 
 // eof
