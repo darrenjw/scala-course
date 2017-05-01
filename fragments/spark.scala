@@ -82,14 +82,12 @@ lm.getStandardization
 lm.explainParams
 
 
-// Transform data frame to required format
 val dflr = (dfLR map {row => (row.getDouble(0), 
            Vectors.dense(row.getDouble(1),row.getDouble(2)))}).
            toDF("label","features")
 dflr.show(5)
 
 
-// Fit model
 val fit = lm.fit(dflr)
 fit.intercept
 fit.coefficients
