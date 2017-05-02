@@ -283,3 +283,187 @@ summ.predictions
 summ.residuals
 // res27: DataFrame = [residuals: double]
 
+
+val p = lp map (x => 1.0/(1.0+math.exp(-x)))
+// p: IndexedSeq[Double] = Vector(0.9994499079755785,
+// 0.4937931999875772, 0.999720196336271, ...
+val yl = p map (pi => new Binomial(1,pi).draw) map
+  (_.toDouble)
+// yl: IndexedSeq[Double] = Vector(1.0, 1.0, 1.0, ...
+val yxl = (yl zip xx) map (p => (p._1,p._2._1,p._2._2))
+// yxl: IndexedSeq[(Double, Double, Double)] = Vector(
+//  (1.0,3.1381503063526694,-0.27142587948210634),
+//  (1.0,0.2902050889768183,-2.1052386533907854), ...
+
+val rddLogR = sc.parallelize(yxl)
+// rddLogR: RDD[(Double, Double, Double)] =
+//   ParallelCollectionRDD[59]
+val dfLogR = rddLogR.toDF("y","x1","x2").persist
+// dfLogR: Dataset[org.apache.spark.sql.Row] =
+//   [y: double, x1: double ... 1 more field]
+dfLogR.show(5)
+// +---+------------------+--------------------+
+// |  y|                x1|                  x2|
+// +---+------------------+--------------------+
+// |1.0|3.1381503063526694|-0.27142587948210634|
+// |1.0|0.2902050889768183| -2.1052386533907854|
+// |1.0|3.2133859767485955|  0.2543706054055738|
+// |1.0|0.8247934159943499| -1.0013955800392003|
+// |1.0| 3.274443477406557| -1.6514890824757613|
+// +---+------------------+--------------------+
+// only showing top 5 rows
+
+
+import org.apache.spark.ml.classification._
+// import org.apache.spark.ml.classification._
+val lr = new LogisticRegression
+// lr: LogisticRegression = logreg_09792f5b38dd
+lr.setStandardization(false)
+// res29: lr.type = logreg_09792f5b38dd
+lr.explainParams
+// res30: String =
+// aggregationDepth: suggested depth for treeAggregate (>= 2) (default: 2)
+// elasticNetParam: the ElasticNet mixing parameter, in range [0, 1].
+//  For alpha = 0, the penalty is an L2 penalty.
+//  For alpha = 1, it is an L1 penalty (default: 0.0)
+// family: The name of family which is a description of the
+//  label distribution to be used in the model.
+//  Supported options: auto, binomial, multinomial. (default: auto)
+// featuresCol: features column name (default: features)
+// fitIntercept: whether to fit an intercept term (default: true)
+// labelCol: label column name (default: label)
+// maxIter: maximum number of iterations (>= 0) (default: 100)
+// predictionCol: prediction column name (default: prediction)
+// probabilityCol: Column name for predicted class conditional probabilities.
+
+val dflogr = (dfLogR map {row => (row.getDouble(0), 
+  Vectors.dense(row.getDouble(1),
+  row.getDouble(2)))}).toDF("label","features")
+// dflogr: DataFrame = [label: double, features: vector]
+dflogr.show(5)
+// +-----+--------------------+
+// |label|            features|
+// +-----+--------------------+
+// |  1.0|[3.13815030635266...|
+// |  1.0|[0.29020508897681...|
+// |  1.0|[3.21338597674859...|
+// |  1.0|[0.82479341599434...|
+// |  1.0|[3.27444347740655...|
+// +-----+--------------------+
+// only showing top 5 rows
+
+val logrfit = lr.fit(dflogr)
+// logrfit: LogisticRegressionModel = logreg_09792f5b38dd
+logrfit.intercept
+// res32: Double = 1.482650505103195
+logrfit.coefficients
+// res33: org.apache.spark.ml.linalg.Vector =
+//   [2.003478489528172,0.9368494184176968]
+
+
+import breeze.linalg.linspace
+// import breeze.linalg.linspace
+val lambdas = linspace(-12,4,60).
+  toArray.
+  map{math.exp(_)}
+// lambdas: Array[Double] = Array(6.14421235332821E-6,
+//  8.058254732499574E-6, 1.0568558767126194E-5, ...
+import org.apache.spark.ml.tuning._
+// import org.apache.spark.ml.tuning._
+import org.apache.spark.ml.evaluation._
+// import org.apache.spark.ml.evaluation._
+val paramGrid = new ParamGridBuilder().
+  addGrid(lr.regParam,lambdas).
+  build()
+// paramGrid: Array[org.apache.spark.ml.param.ParamMap] =
+// Array({
+// 	logreg_09792f5b38dd-regParam: 6.14421235332821E-6
+// }, {
+// 	logreg_09792f5b38dd-regParam: 8.058254732499574E-6
+//  ...
+val cv = new CrossValidator().
+  setEstimator(lr).
+  setEvaluator(new BinaryClassificationEvaluator).
+  setEstimatorParamMaps(paramGrid).
+  setNumFolds(8)
+// cv: CrossValidator = cv_6d06cc600072
+val cvMod = cv.fit(dflogr)
+// cvMod: CrossValidatorModel = cv_6d06cc600072
+cvMod.explainParams
+// res34: String =
+// estimator: estimator for selection (current: logreg_09792f5b38dd)
+// estimatorParamMaps: param maps for the estimator (current: [Lorg.apache.spark.ml.param.ParamMap;@40b2122b)
+// evaluator: evaluator used to select hyper-parameters that maximize the validated metric (current: binEval_4fe7ca428ee0)
+// numFolds: number of folds for cross validation (>= 2) (default: 3, current: 8)
+// seed: random seed (default: -1191137437)
+cvMod.bestModel.explainParams
+// res35: String =
+// aggregationDepth: suggested depth for treeAggregate (>= 2) (default: 2)
+// elasticNetParam: the ElasticNet mixing parameter, in range [0, 1]. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty (default: 0.0)
+// family: The name of family which is a description of the label distribution to be used in the model. Supported options: auto, binomial, multinomial. (default: auto)
+// featuresCol: features column name (default: features)
+// fitIntercept: whether to fit an intercept term (default: true)
+// labelCol: label column name (default: label)
+// maxIter: maximum number of iterations (>= 0) (default: 100)
+// predictionCol: prediction column name (default: prediction)
+// probabilityCol: Column name for predicted class conditional probabilities. Note: Not all models outp...
+cvMod.bestModel.extractParamMap
+// res36: org.apache.spark.ml.param.ParamMap =
+// {
+// 	logreg_09792f5b38dd-aggregationDepth: 2,
+// 	logreg_09792f5b38dd-elasticNetParam: 0.0,
+// 	logreg_09792f5b38dd-family: auto,
+// 	logreg_09792f5b38dd-featuresCol: features,
+// 	logreg_09792f5b38dd-fitIntercept: true,
+// 	logreg_09792f5b38dd-labelCol: label,
+// 	logreg_09792f5b38dd-maxIter: 100,
+// 	logreg_09792f5b38dd-predictionCol: prediction,
+// 	logreg_09792f5b38dd-probabilityCol: probability,
+// 	logreg_09792f5b38dd-rawPredictionCol: rawPrediction,
+// 	logreg_09792f5b38dd-regParam: 2.737241171E-4,
+// 	logreg_09792f5b38dd-standardization: false,
+// 	logreg_09792f5b38dd-threshold: 0.5,
+// 	logreg_09792f5b38dd-tol: 1.0E-6
+// }
+
+
+name := "spark-template"
+
+version := "0.1"
+
+libraryDependencies  ++= Seq(
+  "org.apache.spark" %% "spark-core" % "2.1.0" % Provided,
+  "org.apache.spark" %% "spark-sql" % "2.1.0" % Provided
+)
+
+scalaVersion := "2.11.8"
+
+
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+
+object SparkApp {
+
+  def main(args: Array[String]): Unit = {
+
+    val conf = new SparkConf().
+      setAppName("Spark Application")
+    val sc = new SparkContext(conf)
+
+    sc.textFile("/usr/share/dict/words").
+      map(_.trim).
+      map(_.toLowerCase).
+      flatMap(_.toCharArray).
+      filter(_ > '/').
+      filter(_ < '}').
+      map{(_,1)}.
+      reduceByKey(_+_).
+      sortBy(_._2,false).
+      collect.
+      foreach(println)
+
+  }
+
+}
+
