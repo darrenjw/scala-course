@@ -50,10 +50,11 @@ sc.textFile("/usr/share/dict/words").
   filter(_ < '}').
   map{(_,1)}.
   reduceByKey(_+_).
+  sortBy(__._2,false).
   collect
-// res5: Array[(Char, Int)] = Array((d,28531),
-//  (z,3281), (p,22274), (x,2124), (t,53006),
-//  (b,15526), (h,19320), (n,57144), ...
+// res5: Array[(Char, Int)] = Array((s,90113),
+//  (e,88833), (i,66986), (a,64439),
+//  (r,57347), (n,57144), ...
 
 
 def ++(other: RDD[T]): RDD[T]
