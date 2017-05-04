@@ -381,6 +381,9 @@ opt.minimize(df,DenseVector(0.0))
 // res67: DenseVector[Double] = DenseVector(5.0)  
 
 
+  "org.scalanlp" %% "breeze-viz" % "0.13"
+
+
 import breeze.plot._
 // import breeze.plot._
 val fig = Figure("My Figure")

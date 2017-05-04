@@ -111,7 +111,9 @@ vec1.reduce(_+_)
 Vector.fill(5)(0)
 // res26: Vector[Int] = Vector(0, 0, 0, 0, 0)
 Vector.fill(5)(math.random)
-// res27: Vector[Double] = Vector(0.35160713387930087, 0.0892297132191533, 0.9061352705408103, 0.7020295276855067, 0.09434089580898397)  
+// res27: Vector[Double] = Vector(0.35160713387930087,
+//   0.0892297132191533, 0.9061352705408103,
+//   0.7020295276855067, 0.09434089580898397)  
 
 
 val map1 = Map("a"->10,"b"->20,"c"->30)
@@ -464,8 +466,9 @@ val nanC=0/0
 
 
 import breeze.linalg._
-def safeChol(m: DenseMatrix[Double]): Option[DenseMatrix[Double]] =
-  scala.util.Try(cholesky(m)).toOption
+def safeChol(m: DenseMatrix[Double]):
+  Option[DenseMatrix[Double]] =
+    scala.util.Try(cholesky(m)).toOption
 val m = DenseMatrix((2.0, 1.0), (1.0, 3.0))
 val c = safeChol(m)
 // c: Option[breeze.linalg.DenseMatrix[Double]] =
