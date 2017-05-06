@@ -18,7 +18,7 @@ Write a function with type signature
 ```scala
 rmvn(n: Int, mean: DenseVector[Double],var: DenseMatrix[Double]): DenseMatrix[Double]
 ```
-which returns a matrix with `n` rows, each row representing an iid draw from a multivariate normal with the given mean and variance matrix. Note that this can be accomplished by *post*-multiplying a matrix of iid *N(0,1)* random quantities by the *upper* Cholesky factor of the variance matrix, and then adding the mean to each row of the result. How can you test your code to ensure that you have implemented it correctly? See the [gamma testing](../examples/C4-GammaTest/src/main/scala/gamma-test.scala) example for clues.
+which returns a matrix with `n` rows, each row representing an iid draw from a multivariate normal with the given mean and variance matrix. Note that this can be accomplished by *post*-multiplying a matrix of iid *N(0,1)* random quantities by the *upper* Cholesky factor of the variance matrix, and then adding the mean to each row of the result. How can you test your code to ensure that you have implemented it correctly? See the [gamma testing](../examples/C4-GammaTest/src/main/scala/gamma-test.scala) example for clues. Also, `breeze.stats.covmat` may be of use.
 
 ### 3. Scatter-plot
 
