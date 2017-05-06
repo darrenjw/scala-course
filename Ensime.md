@@ -37,7 +37,7 @@ Once you have MELPA set up, installing Ensime should be as simple as copying the
 ```lisp
 (use-package ensime
   :ensure t
-  :pin melpa-stable)
+  :pin melpa)
 ```
 to the end of your init file and restarting Emacs, but see the [Installing with Emacs](http://ensime.org/editors/emacs/install/) page for further details.
 
