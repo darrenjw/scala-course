@@ -90,13 +90,14 @@ object Regression {
   def main(args: Array[String]): Unit = {
 
     val url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data"
-    val fileName = "yacht.dat"
+    val fileName = "yacht.csv"
 
     // download the file to disk if it hasn't been already
-    if (!(new java.io.File(fileName).exists)) {
-      val s = new java.io.PrintWriter(new java.io.File(fileName))
-      val data = scala.io.Source.fromURL(url).getLines.toList
-      data.foreach(l => s.write(l.trim.split(' ').filter(_ != "").mkString(",") + "\n"))
+    val file = new java.io.File(fileName)
+    if (!file.exists) {
+      val s = new java.io.PrintWriter(file)
+      val data = scala.io.Source.fromURL(url).getLines
+      data.foreach(l => s.write(l.trim.split(' ').filter(_ != "").mkString("",",","\n")))
       s.close
     }
 
