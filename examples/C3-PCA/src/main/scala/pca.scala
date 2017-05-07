@@ -16,7 +16,13 @@ import breeze.linalg._
 object PCA {
 
   case class Pca(mat: DenseMatrix[Double]) {
-
+    // first centre the matrix...
+    import breeze.stats.mean
+    val xBar = mean(mat(::,*)).t
+    val x = mat(*,::) - xBar
+    // then SVD...
+    val SVD = svd.reduced(x)
+    // contains U, S and Vt
   }
 
 
@@ -47,7 +53,7 @@ object PCA {
     val x = mat(::,0 to 3)
     println("Dim: " + x.rows + " " + x.cols)
     val clas = mat(::,4).toDenseVector
-
+    val pca = Pca(x)
 
   } // main
 
