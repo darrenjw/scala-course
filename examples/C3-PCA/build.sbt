@@ -1,4 +1,4 @@
-name := "regression"
+name := "pca"
 
 version := "0.1"
 
