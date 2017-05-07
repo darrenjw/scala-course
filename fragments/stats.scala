@@ -520,11 +520,10 @@ new PrintWriter("out.csv") {
 }
 
 
-val df = sqlContext.read.
-  format("com.databricks.spark.csv").
-  option("header", "true").
-  option("inferSchema","true").
-  load("cars93.csv")
+val df = spark.read.
+         option("header", "true").
+         option("inferSchema","true").
+         csv("../r/cars93.csv")
 val df2=df.filter("EngineSize <= 4.0")
 val col=df2.col("Weight")*0.453592
 val df3=df2.withColumn("WeightKG",col)
