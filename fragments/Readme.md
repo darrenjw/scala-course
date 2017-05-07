@@ -2,7 +2,7 @@
 
 Raw code fragments auto-extracted from the course notes, to allow copy-and-pasting of bits of code into a REPL or editor.
 
-For complete runnable examples from the notes, instead see the [examples directory](../examples/Readme.md).
+For complete runnable examples from the notes, instead see the [examples directory](../examples/).
 
 
 ### Code fragments by chapter
