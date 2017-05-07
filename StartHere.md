@@ -14,7 +14,7 @@ The information below is aimed primarily at course participants. In particular, 
 * [sbt-test](sbt-test/) - simple Scala sbt project with lots of dependencies. See the [build.sbt](sbt-test/build.sbt) for list of dependencies. Primarily for testing correct installation of sbt and caching of commonly required dependencies. Also useful for spinning up a REPL (`sbt console`) with lots of dependencies for interactive experiments. The [src/test](sbt-test/src/test/scala/) subdirectory tree contains some basic examples of how to write test code.
 
 * [Fragments](fragments/Readme.md) - raw fragments of code from the course notes, auto-extracted by chapter
-* [Examples](examples/Readme.md) - complete runnable code examples, split corresponding to each chapter of the course notes
+* [Examples](examples/) - complete runnable code examples, split corresponding to each chapter of the course notes
 * [Exercises](exercises/Readme.md) - simple programming exercises, to be tackled following the presentation of each chapter of the notes.
 
 
