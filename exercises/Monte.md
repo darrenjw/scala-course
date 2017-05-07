@@ -6,7 +6,7 @@
 
 A mixture random variable is constructed as a Binomial random quantity with sample size taken from a *Poisson* distribution with mean 20 and success probability drawn independently from a *Beta(4,4)* distribution.
 
-* Monadically, or otherwise, construct a function for drawing samples from this random variable. Note that fresh Poisson and Beta draws are required for each binomial draw.
+* Monadically, or otherwise, construct a function for drawing samples from this random variable. Note that fresh Poisson and Beta draws are required for each Binomial draw.
 * Take 10,000 draws and plot the distribution.
 * Average the draws to get an empirical estimate of the mean of this random variable.
 
