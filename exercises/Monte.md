@@ -2,9 +2,9 @@
 
 ## Practical exercises
 
-### 1. Monte Carlo estimate of Pi
+### 1. Pure Monte Carlo
 
-Simulate points uniformly over the unit square, and use the fact that the fraction of points with a distance of less than one from the origin will be `Pi/4`. Test it for very large sample sizes. Parallelise your implementation and time it and the serial version and measure the speed-up.
+A random variable 
 
 ### 2. Bayesian inference for a normal random sample
 
