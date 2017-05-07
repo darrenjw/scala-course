@@ -10,7 +10,7 @@
 ### 2. IRLS code optimisation
 
 * Make sure you can run the logistic regression example from the notes using the simple IRLS function that was provided.
-* The IRLS function is illustrative rather than efficient. There are many way in which the code could be made more efficient. We will start with the weight matrix, `W`. This is an `n` x `n` matrix, which is bad-news if `n` is large. But it's diagonal, so it could easily be represented by an `n`-vector. Modify the code to make `W` a vector rather than a matrix, and check it gives the same results as the previous version. Time it on some big problems to see if it's perceptibly faster
+* The IRLS function is illustrative rather than efficient. There are many way in which the code could be made more efficient. We will start with the weight matrix, `W`. This is an `n` x `n` matrix, which is bad-news if `n` is large. But it's diagonal, so it could easily be represented by an `n`-vector. Modify the code to make `W` a vector rather than a matrix, and check it gives the same results as the previous version. Time it on some big problems to see if it's perceptibly faster.
 * (optional) Google the efficient implementation of IRLS (using QR decomposition), and implement it. Check it works and that it's faster.
 
 
