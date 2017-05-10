@@ -31,7 +31,15 @@ Ensime is installed using [MELPA](http://melpa.org/) - the Emacs package archive
   (package-install 'use-package))
 (require 'use-package)
 ```
-into your `.emacs` or `.emacs.d/init.el` file. See the [Learning Emacs](http://ensime.org/editors/emacs/learning) page for details.
+into your `.emacs` or `.emacs.d/init.el` file. Try restarting Emacs and check there are no errors. If for some reason this doesn't work, you could try adding the snippet:
+```lisp
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+```
+immediately before the final line. See the [Learning Emacs](http://ensime.org/editors/emacs/learning) page for further details.
+
+
 
 Once you have MELPA set up, installing Ensime should be as simple as copying the snippet:
 ```lisp
