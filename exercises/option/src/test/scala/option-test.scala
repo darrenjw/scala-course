@@ -28,7 +28,7 @@ class PartA extends FunSuite {
     assert(approxEq(1.0, 1.0))
   }
 
-  import Ex2._
+  import OptionBisect._
 
   test("findRootOpt(-10.0,10.0)(x => x+1.0) == Some(-1.0)") {
     assert(approxEq(findRootOpt(-10.0, 10.0)(x => x + 1.0).getOrElse(0.0), -1.0))
@@ -92,7 +92,7 @@ class PartB extends FunSuite {
     assert(approxEq(1.0, 1.0))
   }
 
-  import Ex2._
+  import OptionBisect._
 
   def testX(a: Double, x: Double): Boolean = {
     val y = a * x * x
