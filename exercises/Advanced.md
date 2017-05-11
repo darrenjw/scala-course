@@ -8,7 +8,7 @@
 
 ### 2. Simulacrum for typeclass programming
 
-* [Simulacrum](https://github.com/mpilquist/simulacrum) is another useful library for FP in Scala. Read about how it works and then re-do the `CsvRow` and `Thinnable` typeclass examples from the notes using Simulacrum. Note how much cleaner they are.
+* [Simulacrum](https://github.com/mpilquist/simulacrum) is another useful library for FP in Scala. Read about how it works and then re-do the `CsvRow` and `Thinnable` typeclass examples from the notes using Simulacrum. Note how much cleaner they are. Note that Cats has a dependence on Simulacrum, so if you have a project or REPL with a Cats dependency you do not need to add an additional dependence on Simulacrum.
 
 ### 3. Probabilistic programming with Figaro
 
