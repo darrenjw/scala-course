@@ -295,18 +295,17 @@ def IRLS(
   bpp: Double => Double,
   y: DenseVector[Double],
   X: DenseMatrix[Double],
-  bhat0: DenseVector[Double] = DenseVector.
-    zeros[Double](X.cols),
-  its: Int = 30,
+  bhat0: DenseVector[Double],
+  its: Int,
   tol: Double = 0.0000001
 ): DenseVector[Double] = if (its == 0) {
   println("WARNING: IRLS did not converge")
   bhat0
 } else {
   val eta = X * bhat0
-  val W = diag(eta map bpp) 
+  val W = diag(eta map bpp)
   val z = y - (eta map bp)
-  val bhat = bhat0 + (X.t * W * X) \ (X.t * z) 
+  val bhat = bhat0 + (X.t * W * X) \ (X.t * z)
   if (norm(bhat-bhat0) < tol) bhat else
     IRLS(b,bp,bpp,y,X,bhat,its-1,tol)
 }
@@ -315,8 +314,6 @@ def IRLS(
 def logReg(
   y: DenseVector[Double],
   X: DenseMatrix[Double],
-  bhat0: DenseVector[Double] =
-    DenseVector.zeros[Double](X.cols),
   its: Int = 30
 ): DenseVector[Double] = {
   def b(x: Double): Double = math.log(1.0+math.exp(x))
@@ -325,6 +322,7 @@ def logReg(
     val e = math.exp(-x)
       e/((1.0+e)*(1.0+e))
   }
+  val bhat0 = DenseVector.zeros[Double](X.cols)
   IRLS(b,bp,bpp,y,X,bhat0,its)
 }
 
@@ -399,10 +397,9 @@ val y = mu map (mui => new Poisson(mui).draw) map
 def poiReg(
   y: DenseVector[Double],
   X: DenseMatrix[Double],
-  bhat0: DenseVector[Double] = DenseVector.
-    zeros[Double](X.cols),
   its: Int = 30
 ): DenseVector[Double] = {
+  val bhat0 = DenseVector.zeros[Double](X.cols)
   IRLS(math.exp,math.exp,math.exp,y,X,bhat0,its)
 }
 
