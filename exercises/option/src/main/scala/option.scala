@@ -1,9 +1,9 @@
 /*
-ex2.scala
+option.scala
 
  */
 
-object Ex2 {
+object OptionBisect {
 
   // Part A
 

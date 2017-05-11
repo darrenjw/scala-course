@@ -12,7 +12,7 @@ Briefly review the official [collections overview](http://docs.scala-lang.org/ov
 
 a. By copying the `app-template` directory (or otherwise), create a new Scala SBT project. Write a function with signature
 ```scala
-meanAndSD(Vector[Double]): (Double, Double)
+meanAndSD(x: Vector[Double]): (Double, Double)
 ```
 which returns a tuple containing the sample mean and sample standard deviation of the collection of numbers.
 
