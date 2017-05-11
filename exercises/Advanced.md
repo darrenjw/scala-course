@@ -12,7 +12,7 @@
 ```scala
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 ```
-to your `build.sbt` file. The `sbt-test` example project is set up to allow experimenting with Simulacrum from the REPL.
+to your `build.sbt` file. The `sbt-test` example project is set up to allow experimenting with both Simulacrum and Cats from the REPL.
 
 ### 3. Probabilistic programming with Figaro
 
