@@ -1,5 +1,5 @@
 /*
-ex2.scala
+option.scala
 
  */
 
