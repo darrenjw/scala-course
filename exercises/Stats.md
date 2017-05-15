@@ -13,6 +13,9 @@
 * The IRLS function is illustrative rather than efficient. There are many way in which the code could be made more efficient. We will start with the weight matrix, `W`. This is an `n` x `n` matrix, which is bad-news if `n` is large. But it's diagonal, so it could easily be represented by an `n`-vector. Modify the code to make `W` a vector rather than a matrix, and check it gives the same results as the previous version. Time it on some big problems to see if it's perceptibly faster.
 * (optional) Google the efficient implementation of IRLS (using QR decomposition), and implement it. Check it works and that it's faster.
 
+### 3. Scala-Glm library
+
+I've created a small library for fitting linear and generalised linear models, based on the code examples from this course. See the [scala-glm](https://github.com/darrenjw/scala-glm) repo for further details. Try it out and make sure you know how it works.
 
 
 #### eof
