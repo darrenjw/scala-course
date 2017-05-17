@@ -18,7 +18,7 @@ Begin by reading through the [quickstart guide](https://github.com/scalanlp/bree
 ```scala
 rmvn(n: Int, mean: DenseVector[Double], cov: DenseMatrix[Double]): DenseMatrix[Double]
 ```
-which returns a matrix with `n` rows, each row representing an iid draw from a multivariate normal with the given mean and variance matrix. Note that this can be accomplished by *post*-multiplying a matrix of iid *N(0,1)* random quantities by the *upper* Cholesky factor of the variance matrix, and then adding the mean to each row of the result (don't use the built-in Breeze function for simulating multivariate Gaussians unless you're stuck). Study my [PCA example](../examples/C4-PCA/src/main/scala/pca.scala) for ideas.
+which returns a matrix with `n` rows, each row representing an iid draw from a multivariate normal with the given mean and variance matrix. Note that this can be accomplished by *post*-multiplying a matrix of iid *N(0,1)* random quantities by the *upper* Cholesky factor of the variance matrix (on the right), and then adding the mean to each row of the result (don't use the built-in Breeze function for simulating multivariate Gaussians unless you're stuck). Study my [PCA example](../examples/C4-PCA/src/main/scala/pca.scala) for ideas.
 * How can you test your code to ensure that you have implemented it correctly? See the [gamma testing](../examples/C4-GammaTest/src/main/scala/gamma-test.scala) example for clues. Also, `breeze.stats.covmat` may be of use.
 
 ### 3. Scatter-plot
