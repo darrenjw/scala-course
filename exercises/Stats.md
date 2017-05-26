@@ -15,7 +15,11 @@
 
 ### 3. Scala-Glm library
 
-I've created a small library for fitting linear and generalised linear models, based on the code examples from this course. See the [scala-glm](https://github.com/darrenjw/scala-glm) repo for further details. Try it out and make sure you know how it works.
+I've created a small library for fitting linear and generalised linear models, based on the code examples from this course. See the [scala-glm](https://github.com/darrenjw/scala-glm) repo for further details.
+
+* Try it out and make sure you know how to use it.
+* Once you have figured out how it works, take some time to browse the source code. This is a small library with a relatively simple structure. It serves as an example of how to create a small library with a few source files and a few test files. It is a little bit bigger than the very small examples we have been focussing on in this course, but a lot smaller than a large library like Breeze, which can be a bit daunting at first.
+* Look at how I've (re-)structured the GLM code, and how I've implemented the IRLS algorithm.
 
 
 #### eof
