@@ -69,7 +69,8 @@ object PFilter {
     val srw = rw reduce (_ + _)
     val l = rw.length
     val z = rw zip xp
-    val rx = z flatMap (p => Vector.fill(Poisson(p._1 * l / srw).draw)(p._2))
+    val rx = z flatMap { case (rwi, xpi) => 
+      Vector.fill(Poisson(rwi * l / srw).draw)(xpi) }
     (max + math.log(srw / l), rx)
   }
 
@@ -79,8 +80,9 @@ object PFilter {
   ): (LogLik, C[S]) = {
     val updater = update[S, O, C](dataLik, stepFun) _
     data.foldLeft((0.0, x0))((prev, o) => {
-      val next = updater(prev._2, o)
-      (prev._1 + next._1, next._2)
+      val (oll, ox) = prev
+      val (ll, x) = updater(ox, o)
+      (oll + ll, x)
     })
   }
 

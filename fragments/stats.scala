@@ -253,6 +253,85 @@ p.title = "Residuals against fitted values"
 // p.title: String = Residuals against fitted values
 
 
+val url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data"
+val fileName = "yacht.csv"
+val file = new java.io.File(fileName)
+if (!file.exists) {
+      val s = new java.io.PrintWriter(file)
+      val data = scala.io.Source.fromURL(url).getLines
+      data.foreach(l => s.write(l.trim.split(' ').
+        filter(_ != "").mkString("",",","\n")))
+      s.close
+}
+
+
+val mat = csvread(new java.io.File(fileName))
+// mat: breeze.linalg.DenseMatrix[Double] =
+// -2.3  0.568  4.78  3.99  3.17  0.125  0.11
+// -2.3  0.568  4.78  3.99  3.17  0.15   0.27
+// -2.3  0.568  4.78  3.99  3.17  0.175  0.47
+// -2.3  0.568  4.78  3.99  3.17  0.2    0.78
+// -2.3  0.568  4.78  3.99  3.17  0.225  1.18
+// ....
+println("Dim: " + mat.rows + " " + mat.cols)
+// Dim: 308 7
+val y = mat(::, 6) // response is the final column
+// y: breeze.linalg.DenseVector[Double] = DenseVector(0.11, 0.27, 0.47, ...
+val x = mat(::, 0 to 5)
+// x: breeze.linalg.DenseMatrix[Double] =
+// -2.3  0.568  4.78  3.99  3.17  0.125
+// -2.3  0.568  4.78  3.99  3.17  0.15
+// -2.3  0.568  4.78  3.99  3.17  0.175
+// -2.3  0.568  4.78  3.99  3.17  0.2
+// -2.3  0.568  4.78  3.99  3.17  0.225
+// -2.3  0.568  4.78  3.99  3.17  0.25
+// -2.3  0.568  4.78  3.99  3.17  0.275
+// ...
+
+
+Lm(y,x,List("LongPos","PrisCoef","LDR","BDR","LBR",
+  "Froude")).summary
+// Estimate	 S.E.	 t-stat	p-value		Variable
+// ---------------------------------------------------------
+//   0.1943	 0.338	 0.575	0.5655  	LongPos
+// -35.6159	16.005	-2.225	0.0268 *	PrisCoef
+//  -4.1631	 7.779	-0.535	0.5929  	LDR
+//   1.3747	 3.297	 0.417	0.6770  	BDR
+//   3.3232	 8.911	 0.373	0.7095  	LBR
+// 121.4745	 5.054	24.034	0.0000 *	Froude
+// Residual standard error:   8.9522 on 302 degrees of freedom
+// Multiple R-squared: 0.6570, Adjusted R-squared: 0.6513
+// F-statistic: 115.6888 on 5 and 302 DF, p-value: 0.00000
+
+
+val X = DenseMatrix.horzcat(
+   DenseVector.ones[Double](x.rows).toDenseMatrix.t,x)
+// X: breeze.linalg.DenseMatrix[Double] =
+// 1.0  -2.3  0.568  4.78  3.99  3.17  0.125
+// 1.0  -2.3  0.568  4.78  3.99  3.17  0.15
+// 1.0  -2.3  0.568  4.78  3.99  3.17  0.175
+// 1.0  -2.3  0.568  4.78  3.99  3.17  0.2
+// 1.0  -2.3  0.568  4.78  3.99  3.17  0.225
+// ...
+val mod = Lm(y,X,List("(Intercept)","LongPos",
+  "PrisCoef","LDR","BDR","LBR","Froude"))
+// mod: Lm =
+// Lm(DenseVector(0.11, 0.27, 0.47, ...
+mod.summary
+// Estimate	 S.E.	 t-stat	p-value		Variable
+// ---------------------------------------------------------
+// -19.2367	27.113	-0.709	0.4786  	(Intercept)
+//   0.1938	 0.338	 0.573	0.5668  	LongPos
+//  -6.4194	44.159	-0.145	0.8845  	PrisCoef
+//   4.2330	14.165	 0.299	0.7653  	LDR
+//  -1.7657	 5.521	-0.320	0.7493  	BDR
+//  -4.5164	14.200	-0.318	0.7507  	LBR
+// 121.6676	 5.066	24.018	0.0000 *	Froude
+// Residual standard error:   8.9596 on 301 degrees of freedom
+// Multiple R-squared: 0.6576, Adjusted R-squared: 0.6507
+// F-statistic: 96.3327 on 6 and 301 DF, p-value: 0.00000
+
+
 import breeze.linalg._
 // import breeze.linalg._
 import breeze.stats.distributions.{Gaussian,Binomial}

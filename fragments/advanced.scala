@@ -131,31 +131,33 @@ trait GenericColl[C[_]] {
 
 
 def update[S: State, O: Observation, C[_]: GenericColl](
-  dataLik: (S, O) => LogLik, stepFun: S => S
-)(x: C[S], o: O): (LogLik, C[S]) = {
-  val xp = x map (stepFun(_))
-  val lw = xp map (dataLik(_, o))
-  val max = lw reduce (math.max(_, _))
-  val rw = lw map (lwi => math.exp(lwi - max))
-  val srw = rw reduce (_ + _)
-  val l = rw.length
-  val z = rw zip xp
-  val rx = z flatMap (p => Vector.fill(
-    Poisson(p._1 * l / srw).draw)(p._2))
-  (max + math.log(srw / l), rx)
+    dataLik: (S, O) => LogLik, stepFun: S => S
+  )(x: C[S], o: O): (LogLik, C[S]) = {
+    import breeze.stats.distributions.Poisson
+    val xp = x map (stepFun(_))
+    val lw = xp map (dataLik(_, o))
+    val max = lw reduce (math.max(_, _))
+    val rw = lw map (lwi => math.exp(lwi - max))
+    val srw = rw reduce (_ + _)
+    val l = rw.length
+    val z = rw zip xp
+    val rx = z flatMap { case (rwi, xpi) => 
+      Vector.fill(Poisson(rwi * l / srw).draw)(xpi) }
+    (max + math.log(srw / l), rx)
 }
 
 
 def pFilter[S: State, O: Observation,
-    C[_]: GenericColl, D[O] <: GenTraversable[O]](
+  C[_]: GenericColl, D[O] <: GenTraversable[O]](
   x0: C[S], data: D[O],
-    dataLik: (S, O) => LogLik, stepFun: S => S
-): (LogLik, C[S]) = {
-  val updater = update[S, O, C](dataLik, stepFun) _
-  data.foldLeft((0.0, x0))((prev, o) => {
-    val next = updater(prev._2, o)
-    (prev._1 + next._1, next._2)
-  })
+  dataLik: (S, O) => LogLik, stepFun: S => S
+  ): (LogLik, C[S]) = {
+    val updater = update[S, O, C](dataLik, stepFun) _
+    data.foldLeft((0.0, x0))((prev, o) => {
+      val (oll, ox) = prev
+      val (ll, x) = updater(ox, o)
+      (oll + ll, x)
+    })
 }
 
 

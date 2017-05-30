@@ -271,6 +271,26 @@ ts.U * diag(ts.S) * ts.Vt
 // 5.000000000000001   10.000000000000004  15.000000000000005  20.00000000000001
 
 
+import breeze.linalg._
+import breeze.stats._
+
+case class Pca(mat: DenseMatrix[Double]) {
+    val xBar = mean(mat(::,*)).t
+    val x = mat(*,::) - xBar
+    val SVD = svd.reduced(x)
+    val loadings = SVD.Vt.t
+    val sdev = SVD.S / math.sqrt(x.rows - 1)
+    lazy val scores = x * loadings
+  }
+
+
+val X = DenseMatrix((1.0,1.5),(1.5,2.0),(2.0,1.5))
+val pca = Pca(X)
+pca.sdev
+pca.loadings
+pca.scores
+
+
 val q=qr.reduced(m) // thin QR
 // q: breeze.linalg.qr.DenseQR =
 // QR(-0.13867504905630734  0.881744764716757 ...

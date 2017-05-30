@@ -195,26 +195,35 @@ def newState(x: Double, oldll: Double, eps: Double):
 
 
   @tailrec
-  def metrop6(n: Int = 1000, eps: Double = 0.5,
-  x: Double = 0.0, oldll: Double = Double.MinValue,
-  acc: List[Double] = Nil): DenseVector[Double] = {
-    if (n == 0) DenseVector(acc.reverse.toArray) else {
-      val ns = newState(x, oldll, eps)
-      metrop6(n - 1, eps, ns._1, ns._2, ns._1 :: acc)
+  def metrop5b(n: Int = 1000, eps: Double = 0.5,
+  x: Double = 0.0,
+  oldll: Double = Double.MinValue): Unit = {
+    if (n > 0) {
+      println(x)
+      val (nx, ll) = newState(x, oldll, eps)
+      metrop5b(n - 1, eps, nx, ll)
     }
   }
 
 
-def nextState(eps: Double)(state: (Double, Double)):
-  (Double, Double) = {
-    val x = state._1
-    val oldll = state._2
+  @tailrec
+  def metrop6(n: Int = 1000, eps: Double = 0.5,
+   x: Double = 0.0, oldll: Double = Double.MinValue,
+   acc: List[Double] = Nil): DenseVector[Double] = {
+    if (n == 0) DenseVector(acc.reverse.toArray) else {
+      val (nx, ll) = newState(x, oldll, eps)
+      metrop6(n - 1, eps, nx, ll, nx :: acc)
+    }
+  }
+
+
+  def nextState(eps: Double)(state: (Double, Double)): (Double, Double) = {
+    val (x, oldll) = state
     val can = x + Uniform(-eps, eps).draw
     val loglik = Gaussian(0.0, 1.0).logPdf(can)
     val loga = loglik - oldll
-    if (math.log(Uniform(0.0, 1.0).draw) < loga)
-      (can, loglik) else (x, oldll)
-}
+    if (math.log(Uniform(0.0, 1.0).draw) < loga) (can, loglik) else (x, oldll)
+  }
 
 
 def metrop7(eps: Double = 0.5, x: Double = 0.0,

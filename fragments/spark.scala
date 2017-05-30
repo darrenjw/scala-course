@@ -426,6 +426,12 @@ cvMod.bestModel.extractParamMap
 // 	logreg_09792f5b38dd-threshold: 0.5,
 // 	logreg_09792f5b38dd-tol: 1.0E-6
 // }
+val lambda = cvMod.bestModel.
+  extractParamMap.
+  getOrElse(cvMod.bestModel.
+    getParam("regParam"),0.0).
+  asInstanceOf[Double]
+// lambda: Double = 2.737241171E-4
 
 
 name := "spark-template"
