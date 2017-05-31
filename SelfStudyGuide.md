@@ -18,7 +18,7 @@ However you study the course, the plan of study should be roughly the same. For 
 
 You learn programming by *programming* and not by reading. Although it is tempting to just read through the notes and skip everything else, if you do this you are likely to get to the end feeling like you've sort-of understood everything but not actually be able to sit down and write code.
 
-
+Further information, including [laptop setup instructions](Setup.md), can be obtained from the [start here](StartHere.md) page.
 
 #### eof
 
