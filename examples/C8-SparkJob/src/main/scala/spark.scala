@@ -19,9 +19,9 @@ object SparkApp {
 
   def main(args: Array[String]): Unit = {
 
-    val conf = new SparkConf().
+    val spark = new SparkConf().
       setAppName("Spark Application")
-    val sc = new SparkContext(conf)
+    val sc = new SparkContext(spark)
 
     sc.textFile("/usr/share/dict/words").
       map(_.trim).
