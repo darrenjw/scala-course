@@ -10,7 +10,7 @@ In the more typical case where you are studying this course on top of full-time 
 
 However you study the course, the plan of study should be roughly the same. For each Chapter:
 
-1. Read the course notes for the Chapter (one Chapter only)
+1. Read the [course notes](https://github.com/darrenjw/scala-course/raw/master/scscala.pdf) for the Chapter (one Chapter only)
 2. Run the code examples from the Chapter. If you don't like typing, copy-and-paste code examples from the [fragments](fragments/Readme.md) directory. Note that copying-and-pasting from the PDF of the course notes doesn't work well.
 3. Inspect and run all of the [examples](examples/) associated with the Chapter.
 4. Work through all of the [exercises](exercises/Readme.md) associated with the Chapter.
