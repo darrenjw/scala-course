@@ -14,7 +14,7 @@
 
 The ScalaIDE is based on Eclipse, which is a JVM application, and is therefore easy to install as a user without admin/root privilages.
 
-**IMPORTANT** *As we are using Scala 2.12.1 for this course, it is necessary to use a Scala IDE from the 4.6.x series. The 4.5.x series does not have proper support for Scala 2.12. At the time of writing, Scala IDE 4.6.0 has not been officially released, so it is necessary to download a release candidate from the [Latest milestone](http://scala-ide.org/download/milestone.html) area of the download site. The release candidate seems fine, but I hope that an official release will have been made before the course starts.*
+**IMPORTANT** *As we are using Scala 2.12.1 for this course, it is necessary to use a Scala IDE from the 4.6.x series. The 4.5.x series does not have proper support for Scala 2.12.*
 
 From the [download site](http://scala-ide.org/download/sdk.html), select the version of the IDE for your OS. Unpack this in a convenient place on your system and follow any installation instructions. Running it should be a simple matter of running the `eclipse` executable in the top-level directory. See the [Documentation](http://scala-ide.org/documentation.html) for further details.
 
