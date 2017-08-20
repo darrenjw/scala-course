@@ -7,7 +7,7 @@ Course participants should bookmark this page: https://github.com/darrenjw/scala
 * [Course outline](README.md) - front page of the repo, with brief summary overview
 * [Setup instructions](Setup.md) - details of how to set up your laptop for programming in Scala. Please follow these instructions carefully *in advance of the start of the course*.
 
-Registered course participants should not print the [**course notes**](https://github.com/darrenjw/scala-course/raw/master/scscala.pdf), as a printed copy will be given to participants at the start of the course. Others are welcome to self-study this course - please see the [self-study guide](SelfStudyGuide.md). Use the hashtag `#scscala` for discussing the course and the course notes on Twitter and other social media platforms.
+Registered course participants should not print the [**course notes**](https://github.com/darrenjw/scala-course/raw/master/scscala.pdf), as a printed copy of the latest version will be given to participants at the start of the course. Others are welcome to self-study this course - please see the [self-study guide](SelfStudyGuide.md). Use the hashtag `#scscala` for discussing the course and the course notes on Twitter and other social media platforms.
 
 * [Useful links](UsefulLinks.md) - selective and curated collection of some important additional on-line resources
 * [app-template](app-template/) - Scala sbt "seed" project, for copying and editing to create a new Scala sbt project. Minimal dependencies in the sbt build file (just Breeze). Alternatively, use `sbt new darrenjw/breeze.g8` as described in the notes.
