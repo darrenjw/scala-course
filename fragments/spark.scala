@@ -5,7 +5,7 @@
 //       ____              __
 //      / __/__  ___ _____/ /__
 //     _\ \/ _ \/ _ `/ __/  '_/
-//    /___/ .__/\_,_/_/ /_/\_\   version 2.1.0
+//    /___/ .__/\_,_/_/ /_/\_\   version 2.2.0
 //       /_/
 //          
 // Using Scala version 2.11.8 
@@ -13,7 +13,7 @@
 // Type :help for more information.
 
 sc.textFile("README.md").count
-// res0: Long = 104
+// res0: Long = 103
 
 
 val rdd1 = sc.textFile("README.md")
@@ -439,8 +439,8 @@ name := "spark-template"
 version := "0.1"
 
 libraryDependencies  ++= Seq(
-  "org.apache.spark" %% "spark-core" % "2.1.0" % Provided,
-  "org.apache.spark" %% "spark-sql" % "2.1.0" % Provided
+  "org.apache.spark" %% "spark-core" % "2.2.0" % Provided,
+  "org.apache.spark" %% "spark-sql" % "2.2.0" % Provided
 )
 
 scalaVersion := "2.11.8"
