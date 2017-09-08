@@ -7,7 +7,7 @@ These exercises are to be undertaken following presentation of the material from
 
 ### 1. SBT and editor setup
 
-Make sure that you have this repo cloned/downloaded on your system, that SBT is installed and working, and that you have a usable editor/IDE. Check through the laptop set-up instructions and make sure you have done everything required. In particular, make sure that typing `sbt run` from the `sbt-test` directory correctly runs the test script.
+Make sure that you have this repo cloned/downloaded on your system, that SBT is installed and working, and that you have a usable editor/IDE. Check through the [laptop set-up instructions](../Setup.md) and make sure you have done everything required. In particular, make sure that typing `sbt run` from the `sbt-test` directory correctly runs the test script.
 
 ### 2. Explore the repo
 
