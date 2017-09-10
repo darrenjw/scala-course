@@ -217,14 +217,12 @@ def newState(x: Double, oldll: Double, eps: Double):
   }
 
 
-def nextState(eps: Double)(state: (Double, Double)):
-  (Double, Double) = {
+  def nextState(eps: Double)(state: (Double, Double)): (Double, Double) = {
     val (x, oldll) = state
     val can = x + Uniform(-eps, eps).draw
     val loglik = Gaussian(0.0, 1.0).logPdf(can)
     val loga = loglik - oldll
-    if (math.log(Uniform(0.0, 1.0).draw) < loga)
-      (can, loglik) else (x, oldll)
+    if (math.log(Uniform(0.0, 1.0).draw) < loga) (can, loglik) else (x, oldll)
   }
 
 
