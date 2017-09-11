@@ -13,7 +13,7 @@
 // Type :help for more information.
 
 sc.textFile("README.md").count
-// res0: Long = 103
+// res0: Long = 104
 
 
 val rdd1 = sc.textFile("README.md")

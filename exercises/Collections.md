@@ -6,7 +6,7 @@ Exercises following the material presented in Chapter 3
 
 ### 1. Review official documentation
 
-Briefly review the official [collections overview](http://docs.scala-lang.org/overviews/collections/overview.html), concentrating in particular on [immutable collection classes](http://docs.scala-lang.org/overviews/collections/concrete-immutable-collection-classes), and also the [parallel collections overview](http://docs.scala-lang.org/overviews/parallel-collections/overview). Try some code examples in a REPL.
+Briefly review the official [collections overview](http://docs.scala-lang.org/overviews/collections/overview.html), concentrating in particular on [immutable collection classes](http://docs.scala-lang.org/overviews/collections/concrete-immutable-collection-classes.html), and also the [parallel collections overview](http://docs.scala-lang.org/overviews/parallel-collections/overview.html). Try some code examples in a REPL.
 
 ### 2. Computing the sample mean and standard deviation
 
