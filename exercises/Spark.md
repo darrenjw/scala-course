@@ -15,4 +15,8 @@ to your machine and move it somewhere sensible for subsequent analysis. It actua
 * The data is a simple CSV file, so can be parsed easily with Spark's built-in CSV parser. Write a Spark shell script to read the data and fit a simple logistic regression model for the final column (Spam or not) given the other variables.
 * Use Lasso regression to shrink out some of the variables. Choose your Lasso regularisation parameter by cross-validation. How many of the 57 predictor variables drop out of the regression in this case?
 
+### 3. Analysis of social media data
+
+* A less statistical and more data-engineering based Spark exercise can be found in the materials I prepared for an [FPNE Meetup session](https://github.com/darrenjw/FPNEM-2017-03/). The [main exercise](https://github.com/darrenjw/FPNEM-2017-03/blob/master/Twitter.md) concerns the analysis of 1M geotagged tweets from the Newcastle city area. The dataset is [here](http://www.mas.ncl.ac.uk/~ndjw1/share/UO-Twitter-1m.csv.gz).
+
 #### eof
