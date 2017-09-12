@@ -16,8 +16,10 @@ Consider a vector of iid sample observations `x` from a Gaussian distribution wi
 ```scala
 import breeze.stats.distributions.Gaussian
 import scala.collection.GenSeq
-def ll(x: GenSeq[Double])(mean: Double,stdev: Double): Double =
-  x map (Gaussian(mean,stdev).logPdf(_)) reduce (_+_)
+def ll(x: GenSeq[Double])(mean: Double,stdev: Double): Double = {
+  val gau = Gaussian(mean,stdev)
+  x map (gau.logPdf) reduce (_+_)
+}
 ```
 
 * Assuming a flat prior the log-posterior is the log-likelihood. In this case, use the `MarkovChain.metropolisHastings` function in Breeze to sample from the posterior distribution by using the log-posterior as the log-target. For a proposal kernel, use a bivariate normal distribution, constructed using the `MultivariateGaussian` distribution in Breeze. Centre the proposal on the current value, and use a proposal variance matrix which is a scaled version of the 2x2 identity matrix. Manually tune the scaling factor to get reasonable mixing.
