@@ -24,6 +24,9 @@ d. Test your function on huge collections of random *U(0,1)* quantities. What sh
 
 e. (optional) You have probably written this code so that it computes the mean and SD using two passes over the data. Can you figure out a way to implement it using just a single pass?
 
+f. (optional) You have probably completed task e. using a sequential fold which can not easily be parallelised. Can you make it parallelisable by replacing your `fold` with `aggregate`. You will have to look up how `aggregate` works.
+
+
 ### 3. Wrap interval bisection code in an Option
 
 Starting from the code you wrote for [interval bisection](./bisection/Readme.md) previously, make it safe by wrapping it in an Option. See the [detailed instructions](option/Readme.md) for further information.
