@@ -2,7 +2,7 @@
 
 ## Practical exercises
 
-### 1. Pure Monte Carlo
+### 1. Simple Monte Carlo
 
 A mixture random variable is constructed as a `Binomial` random quantity with sample size taken from a `Poisson` distribution with mean 20 and success probability drawn independently from a `Beta(4,4)` distribution.
 
@@ -22,8 +22,8 @@ def ll(x: GenSeq[Double])(mean: Double,stdev: Double): Double = {
 }
 ```
 
-* Assuming a flat prior the log-posterior is the log-likelihood. In this case, use the `MarkovChain.metropolisHastings` function in Breeze to sample from the posterior distribution by using the log-posterior as the log-target. For a proposal kernel, use a bivariate normal distribution, constructed using the `MultivariateGaussian` distribution in Breeze. Centre the proposal on the current value, and use a proposal variance matrix which is a scaled version of the 2x2 identity matrix. Manually tune the scaling factor to get reasonable mixing.
-* Test your implementation on simulated data by conditioning on a large `x` sampled with a mean and variance you know. Check that the posterior mean and standard deviation are close to the true values.
+* Assuming a flat prior the log-posterior is the log-likelihood. In this case, use the `MarkovChain.metropolisHastings` function in Breeze to sample from the posterior distribution by using the log-posterior as the log-target. For a proposal kernel, use a bivariate normal distribution, constructed using the `MultivariateGaussian` distribution in Breeze. Centre the proposal on the current value, and use a proposal variance matrix which is a scaled version of the 2x2 identity matrix. Start off with a scaling of 1.
+* Test your implementation on simulated data by conditioning on a large `x` sampled with a mean and variance you know.  Manually tune the scaling factor of your Metropolis algorithm to get reasonable mixing. Check that the posterior mean and standard deviation are close to the true values.
 * I deliberately parameterised the log likelihood with a `GenSeq`. Run your MCMC algorithm in parallel by passing in `x.par` instead of `x`. Time the runs to see what speed-up (if any) you get. You will probably only get significant speed-up for large `x` (for me, the parallel version is significantly quicker for a sample size of 10k).
 
 
