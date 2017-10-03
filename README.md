@@ -2,7 +2,7 @@
 
 ## 11th-13th December 2017, [Senate House](https://goo.gl/maps/YVaUVoVw8C82), London
 
-**NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/dates), cost, registration and [course descriptions](http://www.jumpingrivers.com/courses). The description for this course is repeated below.**
+**NOTE: I am running this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/dates), cost, registration and [course descriptions](http://www.jumpingrivers.com/courses). The description for this course is repeated below. Also note that I occasionally run this course in-house for companies - enquire with Jumping Rivers if your company is interested in this.**
 
 *Registered course participants should bookmark the [Start Here](StartHere.md) page. Please carefully follow the [laptop setup instructions](Setup.md) in advance of the start of the course.*
 
