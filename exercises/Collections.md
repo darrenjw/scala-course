@@ -14,7 +14,7 @@ a. By copying the `app-template` directory (or otherwise), create a new Scala SB
 ```scala
 meanAndSD(x: Vector[Double]): (Double, Double)
 ```
-which returns a tuple containing the sample mean and sample standard deviation of the collection of numbers.
+which returns a tuple containing the [sample mean](http://mathworld.wolfram.com/SampleMean.html) and [sample standard deviation](https://www.google.co.uk/search?q=sample+standard+deviation+definition) of the collection of numbers.
 
 b. When you get it working, write some tests to check it works on a few trivial examples.
 
