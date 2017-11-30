@@ -24,9 +24,9 @@ x.sum.toDouble/x.length
 poi.probabilityOf(2)
 // res6: Double = 0.22404180765538775
 x map {x => poi.probabilityOf(x)}
-// res7: IndexedSeq[Double] = Vector(0.02160403145248382, ...
+// res7: IndexedSeq[Double] = Vector(0.0216040314, ...
 x map {poi.probabilityOf(_)}
-// res8: IndexedSeq[Double] = Vector(0.02160403145248382, ...
+// res8: IndexedSeq[Double] = Vector(0.0216040314, ...
 
 
 val gau=Gaussian(0.0,1.0)
@@ -36,16 +36,16 @@ gau.draw
 gau.draw
 // res10: Double = 2.4371714130683357
 val y=gau.sample(20)
-// y: IndexedSeq[Double] = Vector(0.8392352891144425, ...
+// y: IndexedSeq[Double] = Vector(0.8392352891, ...
 y
-// res11: IndexedSeq[Double] = Vector(0.8392352891144425, ...
+// res11: IndexedSeq[Double] = Vector(0.839235289, ...
 y.sum/y.length
 // res12: Double = -0.0678965896649274
 y map {gau.logPdf(_)}
-// res13: IndexedSeq[Double] = Vector(-1.2710964684521735, ...
+// res13: IndexedSeq[Double] = Vector(-1.27109646, ...
 
 Gamma(2.0,3.0).sample(5)
-// res14: IndexedSeq[Double] = Vector(2.9045346978407203, ...
+// res14: IndexedSeq[Double] = Vector(2.904534697, ...
 
 
 import breeze.stats._
@@ -55,8 +55,9 @@ mean(y)
 variance(y)
 // res16: Double = 1.0934019878098706
 meanAndVariance(y)
-// res17: breeze.stats.MeanAndVariance = MeanAndVariance(
-//  -0.06789658966492741,1.0934019878098706,20)
+// res17: breeze.stats.MeanAndVariance =
+// MeanAndVariance(-0.06789658966492741,
+//  1.0934019878098706,20)
 
 
 import breeze.linalg._
