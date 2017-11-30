@@ -1,5 +1,6 @@
 
-Welcome to Scala 2.12.1 (OpenJDK 64-Bit Server VM, Java 1.8.0_121).
+Welcome to Scala 2.12.1 (OpenJDK 64-Bit Server VM,
+    Java 1.8.0_121).
 Type in expressions for evaluation. Or try :help.
 
 scala> val a = 5
@@ -87,10 +88,12 @@ scala> f
 res15: List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 scala> f.map(x => x*x)
-res16: List[Int] = List(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+res16: List[Int] = List(1, 4, 9, 16, 25, 36, 49, 64,
+  81, 100)
 
 scala> f map {x => x*x}
-res17: List[Int] = List(1, 4, 9, 16, 25, 36, 49, 64, 81, 100)
+res17: List[Int] = List(1, 4, 9, 16, 25, 36, 49, 64,
+  81, 100)
 
 scala> f filter {_ > 4}
 res18: List[Int] = List(5, 6, 7, 8, 9, 10)

@@ -53,26 +53,26 @@ def backSolve(A: DenseMatrix[Double],
 
 val QR = qr.reduced(X)
 // QR: breeze.linalg.qr.DenseQR =
-// QR(-0.44721359549995787  -0.10656672499880869  0.36158387049672375
-// -0.44721359549995787  -0.6394003499928489   -0.620639682977601
-// -0.44721359549995787  0.6926837124922532    -0.3519495634209888
-// -0.44721359549995787  0.24865569166388585   0.0109426697650324
-// -0.44721359549995787  -0.1953723291644815   0.6000627061368334   ,
-// -2.23606797749979  -4.964070910049532  -4.427414595449584
-// 0.0                1.12605506082074    0.9431155162394527
-// 0.0                0.0                 -1.3260969508404699  )
+// QR(-0.44721359549  -0.10656672499  0.36158387049
+// -0.44721359549  -0.6394003499   -0.620639682
+// -0.44721359549  0.6926837124    -0.3519495634
+// -0.44721359549  0.24865569166   0.0109426697
+// -0.44721359549  -0.1953723291   0.6000627061   ,
+// -2.23606797     -4.964070910    -4.427414595
+// 0.0             1.12605506      0.9431155162
+// 0.0             0.0             -1.3260969508  )
 val q = QR.q
 // q: breeze.linalg.DenseMatrix[Double] =
-// -0.44721359549995787  -0.10656672499880869  0.36158387049672375
-// -0.44721359549995787  -0.6394003499928489   -0.620639682977601
-// -0.44721359549995787  0.6926837124922532    -0.3519495634209888
-// -0.44721359549995787  0.24865569166388585   0.0109426697650324
-// -0.44721359549995787  -0.1953723291644815   0.6000627061368334
+// -0.44721359549  -0.10656672499  0.36158387049
+// -0.44721359549  -0.6394003499   -0.620639682
+// -0.44721359549  0.6926837124    -0.35194956342
+// -0.44721359549  0.24865569166   0.0109426697
+// -0.44721359549  -0.1953723291   0.6000627061
 val r = QR.r
 // r: breeze.linalg.DenseMatrix[Double] =
-// -2.23606797749979  -4.964070910049532  -4.427414595449584
-// 0.0                1.12605506082074    0.9431155162394527
-// 0.0                0.0                 -1.3260969508404699
+// -2.2360679774  -4.96407091004  -4.42741459544
+// 0.0            1.1260550608    0.943115516239
+// 0.0            0.0             -1.326096950840
 backSolve(r, q.t * y)
 // res6: DenseVector[Double] = DenseVector(
 //   -0.2804082840767417, 0.053636616408499954,
@@ -93,7 +93,7 @@ case class Lm(y: DenseVector[Double],
   import org.apache.commons.math3.special.Beta
   def tCDF(t: Double, df: Double): Double = {
     val xt = df / (t * t + df)
-    1.0 - 0.5 * Beta.regularizedBeta(xt, 0.5 * df, 0.5)
+    1.0 - 0.5 * Beta.regularizedBeta(xt,0.5*df,0.5)
   }
   def fCDF(x: Double, d1: Double, d2: Double) = {
     val xt = x * d1 / (x * d1 + d2)
@@ -123,21 +123,25 @@ case class Lm(y: DenseVector[Double],
     println(
     "Estimate\t S.E.\t t-stat\tp-value\t\tVariable")
     println(
-    "---------------------------------------------------------")
+    "----------------------------------------------")
     (0 until pp).foreach(i => printf(
      "%8.4f\t%6.3f\t%6.3f\t%6.4f %s\t%s\n",
       coefficients(i),se(i),t(i),p(i),
       if (p(i) < 0.05) "*" else " ",
       names(i)))
     printf(
-     "\nResidual standard error: %8.4f on %d degrees of freedom\n",
+    "\nResidual standard error: %8.4f on %d degrees",
     rse,df)
+    printf("of freedom\n")
     printf(
-     "Multiple R-squared: %6.4f, Adjusted R-squared: %6.4f\n",
-     rSquared,adjRs)
+    "Multiple R-squared: %6.4f, ",rSquared)
+    printf("Adjusted R-squared: %6.4f\n",
+     adjRs)
     printf(
-     "F-statistic: %6.4f on %d and %d DF, p-value: %6.5f\n\n",
-     f,k,df,pf)
+    "F-statistic: %6.4f on %d and %d DF, ",
+     f,k,df)
+    printf("p-value: %6.5f\n\n",
+     pf)
   }
 }
 
@@ -173,14 +177,14 @@ mod2.pf
 
 
 mod2.summary
-// Estimate	 S.E.	 t-stat	p-value		Variable
-// ---------------------------------------------------------
-//  -0.2804	 0.418	-0.671	0.5711  	Intercept
-//   0.0536	 0.225	 0.238	0.8337  	Var1
-//   0.9906	 0.156	 6.365	0.0238 *	Var2
-// Residual standard error:   0.2064 on 2 degrees of freedom
-// Multiple R-squared: 0.9696, Adjusted R-squared: 0.9391
-// F-statistic: 31.8674 on 2 and 2 DF, p-value: 0.03043
+// Estimate	S.E.	 t-stat	p-value	     Variable
+// ---------------------------------------------------
+//  -0.2804	0.418	-0.671	0.5711       Intercept
+//   0.0536	0.225	 0.238	0.8337       Var1
+//   0.9906	0.156	 6.365	0.0238 *     Var2
+// Residual std error: 0.2064 on 2 degrees of freedom
+// Multiple R-squared: 0.9696, Adj R-squared: 0.9391
+// F-statistic: 31.867 on 2 and 2 DF, p-value: 0.0304
 
 
 // Synthetic data...
@@ -223,14 +227,14 @@ val mod3 = Lm(y,X, List("Intercept","Var1","Var2"))
 // mod3: Lm =
 // Lm(DenseVector(0.2863458414136328, ...
 mod3.summary
-// Estimate	 S.E.	 t-stat	p-value		Variable
-// ---------------------------------------------------------
-//   0.9859	 0.031	31.845	0.0000 *	Intercept
-//   1.4939	 0.032	46.488	0.0000 *	Var1
-//   1.9695	 0.033	60.401	0.0000 *	Var2
-// Residual standard error:   0.9778 on 997 degrees of freedom
-// Multiple R-squared: 0.8535, Adjusted R-squared: 0.8532
-// F-statistic: 2903.0978 on 2 and 997 DF, p-value: 0.00000
+// Estimate	S.E.	 t-stat	p-value	    Variable
+// ---------------------------------------------------
+//   0.9859	0.031	31.845	0.0000 *    Intercept
+//   1.4939	0.032	46.488	0.0000 *    Var1
+//   1.9695	0.033	60.401	0.0000 *    Var2
+// Residual std error: 0.978 on 997 degrees of freedom
+// Multiple R-squared: 0.8535, Adj R-squared: 0.8532
+// F-stat: 2903.097 on 2 and 997 DF, p-value: 0.0000
 
 
 import breeze.plot._
@@ -253,7 +257,9 @@ p.title = "Residuals against fitted values"
 // p.title: String = Residuals against fitted values
 
 
-val url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data"
+val url = "http://archive.ics.uci.edu/ml/"+
+  "machine-learning-databases/00243/"+
+  "yacht_hydrodynamics.data"
 val fileName = "yacht.csv"
 val file = new java.io.File(fileName)
 if (!file.exists) {
@@ -276,7 +282,7 @@ val mat = csvread(new java.io.File(fileName))
 println("Dim: " + mat.rows + " " + mat.cols)
 // Dim: 308 7
 val y = mat(::, 6) // response is the final column
-// y: breeze.linalg.DenseVector[Double] = DenseVector(0.11, 0.27, 0.47, ...
+// y: DenseVector[Double]=DenseVector(0.11,0.27,...
 val x = mat(::, 0 to 5)
 // x: breeze.linalg.DenseMatrix[Double] =
 // -2.3  0.568  4.78  3.99  3.17  0.125
@@ -291,17 +297,17 @@ val x = mat(::, 0 to 5)
 
 Lm(y,x,List("LongPos","PrisCoef","LDR","BDR","LBR",
   "Froude")).summary
-// Estimate	 S.E.	 t-stat	p-value		Variable
-// ---------------------------------------------------------
-//   0.1943	 0.338	 0.575	0.5655  	LongPos
-// -35.6159	16.005	-2.225	0.0268 *	PrisCoef
-//  -4.1631	 7.779	-0.535	0.5929  	LDR
-//   1.3747	 3.297	 0.417	0.6770  	BDR
-//   3.3232	 8.911	 0.373	0.7095  	LBR
-// 121.4745	 5.054	24.034	0.0000 *	Froude
-// Residual standard error:   8.9522 on 302 degrees of freedom
-// Multiple R-squared: 0.6570, Adjusted R-squared: 0.6513
-// F-statistic: 115.6888 on 5 and 302 DF, p-value: 0.00000
+// Estimate	 S.E.	 t-stat	p-value	    Variable
+// --------------------------------------------------
+//   0.1943	 0.338	 0.575	0.5655      LongPos
+// -35.6159	16.005	-2.225	0.0268 *    PrisCoef
+//  -4.1631	 7.779	-0.535	0.5929      LDR
+//   1.3747	 3.297	 0.417	0.6770      BDR
+//   3.3232	 8.911	 0.373	0.7095      LBR
+// 121.4745	 5.054	24.034	0.0000 *    Froude
+// Residual std error: 8.952 on 302 degrees of freedom
+// Multiple R-squared: 0.6570, Adj R-squared: 0.6513
+// F-statistic: 115.6 on 5 and 302 DF, p-value: 0.000
 
 
 val X = DenseMatrix.horzcat(
@@ -318,18 +324,18 @@ val mod = Lm(y,X,List("(Intercept)","LongPos",
 // mod: Lm =
 // Lm(DenseVector(0.11, 0.27, 0.47, ...
 mod.summary
-// Estimate	 S.E.	 t-stat	p-value		Variable
-// ---------------------------------------------------------
-// -19.2367	27.113	-0.709	0.4786  	(Intercept)
-//   0.1938	 0.338	 0.573	0.5668  	LongPos
-//  -6.4194	44.159	-0.145	0.8845  	PrisCoef
-//   4.2330	14.165	 0.299	0.7653  	LDR
-//  -1.7657	 5.521	-0.320	0.7493  	BDR
-//  -4.5164	14.200	-0.318	0.7507  	LBR
-// 121.6676	 5.066	24.018	0.0000 *	Froude
-// Residual standard error:   8.9596 on 301 degrees of freedom
-// Multiple R-squared: 0.6576, Adjusted R-squared: 0.6507
-// F-statistic: 96.3327 on 6 and 301 DF, p-value: 0.00000
+// Estimate	 S.E.	 t-stat	p-value	   Variable
+// ---------------------------------------------------
+// -19.2367	27.113	-0.709	0.4786     (Intercept)
+//   0.1938	 0.338	 0.573	0.5668     LongPos
+//  -6.4194	44.159	-0.145	0.8845     PrisCoef
+//   4.2330	14.165	 0.299	0.7653     LDR
+//  -1.7657	 5.521	-0.320	0.7493     BDR
+//  -4.5164	14.200	-0.318	0.7507     LBR
+// 121.6676	 5.066	24.018	0.0000 *   Froude
+// Residual std error: 8.959 on 301 degrees of freedom
+// Multiple R-squared: 0.657, Adj R-squared: 0.6507
+// F-statistic: 96.332 on 6 and 301 DF, p-value: 0.000
 
 
 import breeze.linalg._
@@ -342,8 +348,9 @@ val beta = DenseVector(0.1,0.3)
 // beta: DenseVector[Double] = DenseVector(0.1, 0.3)
 val ones = DenseVector.ones[Double](N)
 // ones: DenseVector[Double] = DenseVector(1.0, ...
-val x = DenseVector(Gaussian(1.0,3.0).sample(N).toArray)
-// x: DenseVector[Double] = DenseVector(6.27210899796815,
+val x = DenseVector(Gaussian(1.0,3.0).sample(N).
+  toArray)
+// x: DenseVector[Double] = DenseVector(6.272108997,
 //  3.0135444386214765, 4.373649007468049, ...
 val X = DenseMatrix.vertcat(ones.toDenseMatrix,
   x.toDenseMatrix).t
@@ -364,7 +371,7 @@ val p = theta map expit
 //  0.8788551012256975, 0.7318567276541773, ...
 val y = p map (pi => new Binomial(1,pi).draw) map (
    _.toDouble)
-// y: DenseVector[Double] = DenseVector(1.0, 1.0, 1.0, ...
+// y: DenseVector[Double]=DenseVector(1.0,1.0,1.0,...
 
 
 @annotation.tailrec
@@ -446,7 +453,7 @@ val N = 2000
 val beta = DenseVector(-3.0,0.1)
 // beta: DenseVector[Double] = DenseVector(-3.0, 0.1)
 val ones = DenseVector.ones[Double](N)
-// ones: DenseVector[Double] = DenseVector(1.0, 1.0, ...
+// ones: DenseVector[Double] = DenseVector(1.0,1.0,...
 val x = DenseVector(Gaussian(50.0,10.0).sample(N).
    toArray)
 // x: DenseVector[Double] = DenseVector(
@@ -497,7 +504,7 @@ val betahat = poiReg(y,X,its=100)
 import breeze.plot._
 // import breeze.plot._
 val fig = Figure("Poisson regression")
-// fig: breeze.plot.Figure = breeze.plot.Figure@18a68150
+// fig: Figure = breeze.plot.Figure@18a68150
 fig.width = 1000
 // fig.width: Int = 1000
 fig.height = 800

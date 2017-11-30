@@ -155,8 +155,8 @@ val y = (lp zip eps) map (p => p._1 + p._2)
 // -0.34191413644833557, 5.595445603872117, ...
 val yx = (y zip xx) map (p => (p._1,p._2._1,p._2._2))
 // yx: IndexedSeq[(Double, Double, Double)] = Vector(
-// (6.089605256548691,3.0223249923826834,-1.3299709525667858),
-// (5.8469736426824594,2.077810061808082,0.8900485622851986)
+// (6.0896052565486,3.02232499238268,-1.32997095256678),
+// (5.84697364268245,2.0778100618080,0.89004856228519)
 // ...
 val rddLR = sc.parallelize(yx)
 // rddLR: RDD[(Double, Double, Double)] =
@@ -164,43 +164,44 @@ val rddLR = sc.parallelize(yx)
 
 
 val dfLR = rddLR.toDF("y","x1","x2")
-// dfLR: org.apache.spark.sql.DataFrame = [y: double, x1: double ... 1 more field]
+// dfLR: org.apache.spark.sql.DataFrame =
+//  [y: double, x1: double ... 1 more field]
 dfLR.show
-// +-------------------+--------------------+--------------------+
-// |                  y|                  x1|                  x2|
-// +-------------------+--------------------+--------------------+
-// |   6.089605256548691| 3.0223249923826834| -1.3299709525667858|
-// |  5.8469736426824594|  2.077810061808082|  0.8900485622851986|
-// |   10.58937810589073| 4.8705145017976825|   -0.82913582956473|
-// |-0.34191413644833557|-1.2269630846849795|  0.4170472792720592|
-// |   5.595445603872117| 1.4802998580155953| -0.3296838173775767|
-// |   9.427736572221633| 2.8857451823545124|  1.8388636773477443|
-// |  2.8162102399840037| 0.9805440701579285| -0.2883825935757666|
-// |   2.309534124364391| 1.0778717202118349| -0.8100879058278373|
-// |  2.5747161714542854|0.09520008719238837|  0.5642713548100458|
-// | -3.4422857154246955|-2.9331703116468617| 0.39422544033998586|
-// |   4.724868996350999| 0.8501392094618841| -0.4654355297426119|
-// |  -5.275810527950691|-3.2006600305149977|0.007598304123940...|
-// |  2.3275257922512798| 0.5023605802277589| 0.06622565408926315|
-// |   6.954030184869747| 3.2302471178699803|  -0.476446601461036|
-// |  7.9350616586311995| 3.0156885607537784|  1.4311847283099508|
-// |  -4.338442740026845|-3.1755115071872346|  1.8055806581474056|
-// |  2.3330918772673344| 0.6716231640061243|  0.8335826994900025|
-// |  -1.514930229964497|-1.7340336593492518|  1.4466744503838533|
-// |  2.4294247417548167| 1.5919623686044542| -0.9701544260678676|
-// |   9.437005019053242|  2.521041551181664|  1.4196909330122747|
-// +-------------------+--------------------+--------------------+
+// +----------------+-----------------+-----------------+
+// |               y|               x1|               x2|
+// +----------------+-----------------+-----------------+
+// |   6.089605256548| 3.0223249923826| -1.3299709525667|
+// |  5.8469736426824|  2.077810061808|  0.8900485622851|
+// |   10.58937810589| 4.8705145017976|   -0.82913582956|
+// |-0.34191413644833|-1.2269630846849|  0.4170472792720|
+// |   5.595445603872| 1.4802998580155| -0.3296838173775|
+// |   9.427736572221| 2.8857451823545|  1.8388636773477|
+// |  2.8162102399840| 0.9805440701579| -0.2883825935757|
+// |   2.309534124364| 1.0778717202118| -0.8100879058278|
+// |  2.5747161714542|0.09520008719238|  0.5642713548100|
+// | -3.4422857154246|-2.9331703116468| 0.39422544033998|
+// |   4.724868996350| 0.8501392094618| -0.4654355297426|
+// |  -5.275810527950|-3.2006600305149| 0.00759830412394|
+// |  2.3275257922512| 0.5023605802277| 0.06622565408926|
+// |   6.954030184869| 3.2302471178699|  -0.476446601461|
+// |  7.9350616586311| 3.0156885607537|  1.4311847283099|
+// |  -4.338442740026|-3.1755115071872|  1.8055806581474|
+// |  2.3330918772673| 0.6716231640061|  0.8335826994900|
+// |  -1.514930229964|-1.7340336593492|  1.4466744503838|
+// |  2.4294247417548| 1.5919623686044| -0.9701544260678|
+// |   9.437005019053|  2.521041551181|  1.4196909330122|
+// +-----------------+----------------+-----------------+
 // only showing top 20 rows
 dfLR.show(5)
-// +-------------------+--------------------+--------------------+
-// |                  y|                  x1|                  x2|
-// +-------------------+--------------------+--------------------+
-// |   6.089605256548691| 3.0223249923826834|-1.3299709525667858|
-// |  5.8469736426824594|  2.077810061808082| 0.8900485622851986|
-// |   10.58937810589073| 4.8705145017976825|  -0.82913582956473|
-// |-0.34191413644833557|-1.2269630846849795| 0.4170472792720592|
-// |   5.595445603872117| 1.4802998580155953|-0.3296838173775767|
-// +-------------------+--------------------+--------------------+
+// +----------------+-----------------+----------------+
+// |               y|               x1|              x2|
+// +----------------+-----------------+----------------+
+// |   6.089605256548| 3.0223249923826|-1.3299709525667|
+// |  5.8469736426824|  2.077810061808| 0.8900485622851|
+// |   10.58937810589| 4.8705145017976|  -0.82913582956|
+// |-0.34191413644833|-1.2269630846849| 0.4170472792720|
+// |   5.595445603872| 1.4802998580155|-0.3296838173775|
+// +-----------------+----------------+----------------+
 // only showing top 5 rows
 
 
@@ -226,19 +227,27 @@ lm.getStandardization
 // res16: Boolean = false
 lm.explainParams
 // res17: String =
-// aggregationDepth: suggested depth for treeAggregate (>= 2) (default: 2)
-// elasticNetParam: the ElasticNet mixing parameter, in range [0, 1].
+// aggregationDepth: suggested depth for treeAggregate
+//   (>= 2) (default: 2)
+// elasticNetParam: the ElasticNet mixing parameter,
+//   in range [0, 1].
 //   For alpha = 0, the penalty is an L2 penalty.
 //   For alpha = 1, it is an L1 penalty (default: 0.0)
 // featuresCol: features column name (default: features)
-// fitIntercept: whether to fit an intercept term (default: true)
+// fitIntercept: whether to fit an intercept term
+//   (default: true)
 // labelCol: label column name (default: label)
-// maxIter: maximum number of iterations (>= 0) (default: 100)
-// predictionCol: prediction column name (default: prediction)
-// regParam: regularization parameter (>= 0) (default: 0.0)
+// maxIter: maximum number of iterations (>= 0)
+//   (default: 100)
+// predictionCol: prediction column name
+//   (default: prediction)
+// regParam: regularization parameter (>= 0)
+//   (default: 0.0)
 // solver: the solver algorithm for optimization.
-//   If this is not set or empty, default value is 'auto' (default: auto)
-// standardization: whether to standardize the training features ...
+//   If this is not set or empty, default value is 'auto'
+//    (default: auto)
+// standardization: whether to standardize the
+//   training features ...
 
 
 val dflr = (dfLR map {row => (row.getDouble(0), 
@@ -264,7 +273,8 @@ val dflr2 = new RFormula().
   setFormula("y ~ x1 + x2").
   fit(dfLR).transform(dfLR).
   select("label","features")
-// dflr2: org.apache.spark.sql.DataFrame = [label: double, features: vector]
+// dflr2: org.apache.spark.sql.DataFrame =
+//  [label: double, features: vector]
 dflr2 show 5
 // +--------------------+--------------------+
 // |               label|            features|
@@ -345,19 +355,26 @@ lr.setStandardization(false)
 // res29: lr.type = logreg_09792f5b38dd
 lr.explainParams
 // res30: String =
-// aggregationDepth: suggested depth for treeAggregate (>= 2) (default: 2)
-// elasticNetParam: the ElasticNet mixing parameter, in range [0, 1].
+// aggregationDepth: suggested depth for treeAggregate
+//  (>= 2) (default: 2)
+// elasticNetParam: the ElasticNet mixing parameter,
+//   in range [0, 1].
 //  For alpha = 0, the penalty is an L2 penalty.
 //  For alpha = 1, it is an L1 penalty (default: 0.0)
-// family: The name of family which is a description of the
-//  label distribution to be used in the model.
-//  Supported options: auto, binomial, multinomial. (default: auto)
+// family: The name of family which is a description of
+//  the label distribution to be used in the model.
+//  Supported options: auto, binomial, multinomial.
+//   (default: auto)
 // featuresCol: features column name (default: features)
-// fitIntercept: whether to fit an intercept term (default: true)
+// fitIntercept: whether to fit an intercept term
+//  (default: true)
 // labelCol: label column name (default: label)
-// maxIter: maximum number of iterations (>= 0) (default: 100)
-// predictionCol: prediction column name (default: prediction)
-// probabilityCol: Column name for predicted class conditional probabilities.
+// maxIter: maximum number of iterations (>= 0)
+//  (default: 100)
+// predictionCol: prediction column name
+//  (default: prediction)
+// probabilityCol: Column name for predicted class
+//  conditional probabilities.
 
 val dflogr = new RFormula().
   setFormula("y ~ x1 + x2").
@@ -403,7 +420,7 @@ val paramGrid = new ParamGridBuilder().
 // Array({
 // 	logreg_09792f5b38dd-regParam: 6.14421235332821E-6
 // }, {
-// 	logreg_09792f5b38dd-regParam: 8.058254732499574E-6
+// 	logreg_09792f5b38dd-regParam: 8.05825473249957E-6
 //  ...
 val cv = new CrossValidator().
   setEstimator(lr).
@@ -415,39 +432,55 @@ val cvMod = cv.fit(dflogr)
 // cvMod: CrossValidatorModel = cv_6d06cc600072
 cvMod.explainParams
 // res34: String =
-// estimator: estimator for selection (current: logreg_09792f5b38dd)
-// estimatorParamMaps: param maps for the estimator (current: [Lorg.apache.spark.ml.param.ParamMap;@40b2122b)
-// evaluator: evaluator used to select hyper-parameters that maximize the validated metric (current: binEval_4fe7ca428ee0)
-// numFolds: number of folds for cross validation (>= 2) (default: 3, current: 8)
+// estimator: estimator for selection
+//  (current: logreg_09792f5b38dd)
+// estimatorParamMaps: param maps for the estimator
+//  (current: [ParamMap;@40b2122b)
+// evaluator: evaluator used to select hyper-parameters
+//  that maximize the validated metric
+//    (current: binEval_4fe7ca428ee0)
+// numFolds: number of folds for cross validation (>= 2)
+//  (default: 3, current: 8)
 // seed: random seed (default: -1191137437)
 cvMod.bestModel.explainParams
 // res35: String =
-// aggregationDepth: suggested depth for treeAggregate (>= 2) (default: 2)
-// elasticNetParam: the ElasticNet mixing parameter, in range [0, 1]. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty (default: 0.0)
-// family: The name of family which is a description of the label distribution to be used in the model. Supported options: auto, binomial, multinomial. (default: auto)
+// aggregationDepth: suggested depth for treeAggregate
+//  (>= 2) (default: 2)
+// elasticNetParam: the ElasticNet mixing parameter, in
+//  range [0, 1]. For alpha = 0, the penalty is an L2
+//  penalty. For alpha = 1, it is an L1 penalty
+//   (default: 0.0)
+// family: The name of family which is a description of
+//  the label distribution to be used in the model.
+//  Supported options: auto, binomial, multinomial.
+//   (default: auto)
 // featuresCol: features column name (default: features)
-// fitIntercept: whether to fit an intercept term (default: true)
+// fitIntercept: whether to fit an intercept term
+//  (default: true)
 // labelCol: label column name (default: label)
-// maxIter: maximum number of iterations (>= 0) (default: 100)
-// predictionCol: prediction column name (default: prediction)
-// probabilityCol: Column name for predicted class conditional probabilities. Note: Not all models outp...
+// maxIter: maximum number of iterations (>= 0)
+//  (default: 100)
+// predictionCol: prediction column name
+//  (default: prediction)
+// probabilityCol: Column name for predicted class
+//  conditional probabilities. 
 cvMod.bestModel.extractParamMap
 // res36: org.apache.spark.ml.param.ParamMap =
 // {
-// 	logreg_09792f5b38dd-aggregationDepth: 2,
-// 	logreg_09792f5b38dd-elasticNetParam: 0.0,
-// 	logreg_09792f5b38dd-family: auto,
-// 	logreg_09792f5b38dd-featuresCol: features,
-// 	logreg_09792f5b38dd-fitIntercept: true,
-// 	logreg_09792f5b38dd-labelCol: label,
-// 	logreg_09792f5b38dd-maxIter: 100,
-// 	logreg_09792f5b38dd-predictionCol: prediction,
-// 	logreg_09792f5b38dd-probabilityCol: probability,
-// 	logreg_09792f5b38dd-rawPredictionCol: rawPrediction,
-// 	logreg_09792f5b38dd-regParam: 2.737241171E-4,
-// 	logreg_09792f5b38dd-standardization: false,
-// 	logreg_09792f5b38dd-threshold: 0.5,
-// 	logreg_09792f5b38dd-tol: 1.0E-6
+//   logreg_09792f5b38dd-aggregationDepth: 2,
+//   logreg_09792f5b38dd-elasticNetParam: 0.0,
+//   logreg_09792f5b38dd-family: auto,
+//   logreg_09792f5b38dd-featuresCol: features,
+//   logreg_09792f5b38dd-fitIntercept: true,
+//   logreg_09792f5b38dd-labelCol: label,
+//   logreg_09792f5b38dd-maxIter: 100,
+//   logreg_09792f5b38dd-predictionCol: prediction,
+//   logreg_09792f5b38dd-probabilityCol: probability,
+//   logreg_09792f5b38dd-rawPredictionCol: rawPrediction,
+//   logreg_09792f5b38dd-regParam: 2.737241171E-4,
+//   logreg_09792f5b38dd-standardization: false,
+//   logreg_09792f5b38dd-threshold: 0.5,
+//   logreg_09792f5b38dd-tol: 1.0E-6
 // }
 val lambda = cvMod.bestModel.
   extractParamMap.

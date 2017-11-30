@@ -10,7 +10,8 @@ l1(0)
 l1(2)
 // res3: Int = 8
 l1(2) = 22
-// <console>:9: error: value update is not a member of List[Int]
+// <console>:9: error: value update is not a
+//   member of List[Int]
 //               l1(2) = 22
 //               ^
 l1
@@ -31,7 +32,7 @@ l3(2)
 // res8: Int = 7
 l3(2) = 22
 l3
-// res10: MutableList[Int] = MutableList(5, 6, 22, 8, 9)
+// res10: MutableList[Int] = MutableList(5,6,22,8,9)
 
 
 val list1 = List(3,4,5,6)
@@ -39,7 +40,7 @@ val list1 = List(3,4,5,6)
 val list2 = 2 :: list1
 // list2: List[Int] = List(2, 3, 4, 5, 6)
 val list3 = list1 ++ list2
-// list3: List[Int] = List(3, 4, 5, 6, 2, 3, 4, 5, 6)
+// list3: List[Int] = List(3, 4, 5, 6, 2, 3,4,5,6)
 list3.take(3)
 // res0: List[Int] = List(3, 4, 5)
 list3.drop(2)
@@ -101,7 +102,7 @@ vec1
 vec2
 // res21: Vector[Int] = Vector(6, 5, 10, 3)
 vec1 ++ vec2
-// res22: Vector[Int] = Vector(6, 5, 4, 3, 6, 5, 10, 3)
+// res22: Vector[Int] = Vector(6, 5, 4, 3, 6, 5,10,3)
 vec1 :+ 22
 // res23: Vector[Int] = Vector(6, 5, 4, 3, 22)
 33 +: vec1
@@ -117,14 +118,14 @@ Vector.fill(5)(math.random)
 
 
 val map1 = Map("a"->10,"b"->20,"c"->30)
-// map1: Map[String,Int] = Map(a -> 10, b -> 20, c -> 30)
+// map1: Map[String,Int] = Map(a->10, b->20, c->30)
 map1("b")
 // res28: Int = 20
 val map2 = map1.updated("d",40)
 // map2: Map[String,Int] = Map(a -> 10, b -> 20,
 //   c -> 30, d -> 40)
 map1
-// res29: Map[String,Int] = Map(a -> 10, b -> 20, c -> 30)
+// res29: Map[String,Int] = Map(a->10, b->20, c->30)
 map2
 // res30: Map[String,Int] = Map(a -> 10, b -> 20,
 //   c -> 30, d -> 40)
@@ -176,7 +177,7 @@ evens.take(6).toList
 val triangular = naturals.scanLeft(0)(_+_).drop(1)
 // triangular: Stream[Int] = Stream(1, ?)
 triangular.take(8).toList
-// res40: List[Int] = List(1, 3, 6, 10, 15, 21, 28, 36)  
+// res40: List[Int] = List(1, 3, 6, 10, 15, 21, 28,36)  
 
 
 1 to 5
@@ -197,7 +198,7 @@ range.toList
 // res47: Int = 15  
 
 
-def meanList(ld: List[Double]): Double = ld.sum/ld.length
+def meanList(ld: List[Double]):Double=ld.sum/ld.length
 // meanList: (ld: List[Double])Double
 meanList(List(1,2,3,4))
 // res0: Double = 2.5
@@ -215,7 +216,8 @@ def repD(ld: List[Double], n: Int): List[Double] =
   if (n <= 1) ld else ld ++ repD(ld,n-1)
 // repD: (ld: List[Double], n: Int)List[Double]
 repD(List(1,2,3),3)
-// res3: List[Double] = List(1.0,2.0,3.0,1.0,2.0,3.0,1.0,2.0,3.0)
+// res3: List[Double] = List(1.0,2.0,3.0,1.0,2.0,3.0,
+//   1.0,2.0,3.0)
 
 
 def repl[T](l: List[T], n: Int): List[T] =
@@ -242,26 +244,29 @@ reps(Array("a","b","c"),2)
 
 import scala.collection.SeqLike
 // import scala.collection.SeqLike
-def rep[T, C <: Seq[T]](l: C with SeqLike[T,C], n: Int): C =
+def rep[T,C<:Seq[T]](l:C with SeqLike[T,C],n:Int):C=
   if (n <=1) l else (l ++ rep(l,n-1)).asInstanceOf[C]
-// rep: [T, C <: Seq[T]](l: C with SeqLike[T,C], n: Int)C
+// rep: [T,C<:Seq[T]](l:C with SeqLike[T,C],n:Int)C
 rep(List(1,2,3),3)
 // res11: List[Int] = List(1, 2, 3, 1, 2, 3, 1, 2, 3)
 rep(Vector(1.0,2.0),3)
-// res12: Vector[Double] = Vector(1.0,2.0,1.0,2.0,1.0,2.0)
+// res12: Vector[Double] = Vector(1.0,2.0,1.0,2.0,
+//   1.0,2.0)
 rep(Array("a","b","c").seq,2)
-// res13: IndexedSeq[String] = ArrayBuffer(a, b, c, a, b, c)
+// res13: IndexedSeq[String]=ArrayBuffer(a,b,c,a,b,c)
 
 
-def ssd(sq: Seq[Double]): Double = (sq map (x => x*x)).sum
+def ssd(sq: Seq[Double]): Double = (sq map (x => x*x)
+  ).sum
 // ssd: (sq: Seq[Double])Double
 ssd(List(2,3,4))
 // res7: Double = 29.0
 
 
 def ssg[T](sq: Seq[T]): T = (sq map (x => x*x)).sum
-// <console>:7: error: value * is not a member of type parameter T
-//        def ssg[T](sq: Seq[T]): T = (sq map (x => x*x)).sum
+// <console>:7: error: value * is not a member of
+//   type parameter T
+//     def ssg[T](sq:Seq[T]):T = (sq map (x=>x*x)).sum
 
 
 def ss[T](sq: Seq[T])(implicit num: Numeric[T]): T = {
@@ -280,7 +285,7 @@ def ssg[T: Numeric](sq: Seq[T]): T = {
   import num._
   (sq map (x => x*x)).sum
   }
-// ssg: [T](sq: Seq[T])(implicit evidence$1: Numeric[T])T
+// ssg:[T](sq:Seq[T])(implicit evidence$1:Numeric[T])T
 ssg(List(2,3,4))
 // res10: Int = 29
 ssg(Vector(1.0,2.0,3.0))
@@ -298,7 +303,8 @@ ss(Vector(2.0,3.0,4.0))
 
 
 (1 to 12).par
-// res0: ParRange = ParRange(1,2,3,4,5,6,7,8,9,10,11,12)
+// res0: ParRange = ParRange(1,2,3,4,5,6,7,8,9,10,
+//  11,12)
 Vector(2,4,6,8).par
 // res1: ParVector[Int] = ParVector(2, 4, 6, 8)
 Array("a","b","c").par
@@ -317,9 +323,11 @@ def isPrime(n: Int): Boolean = (2 until n) forall (
 ((2 to 100000).par filter isPrime).length
 // res6: Int = 9592
 (100000000 to 100000100) filter isPrime
-// res7: IndexedSeq[Int] = Vector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
+// res7: IndexedSeq[Int] = Vector(100000007,100000037,
+//   100000039, 100000049, 100000073, 100000081)
 (100000000 to 100000100).par filter isPrime
-// res8: ParSeq[Int] = ParVector(100000007, 100000037, 100000039, 100000049, 100000073, 100000081)
+// res8: ParSeq[Int] = ParVector(100000007, 100000037,
+//  100000039, 100000049, 100000073, 100000081)
 
 
 List().par.tasksupport.parallelismLevel
@@ -335,7 +343,8 @@ sss(Vector(2,3,4))
 // res10: Int = 29
 sss(List(2,3,4).par)
 // <console>:9: error: type mismatch;
-//  found   : scala.collection.parallel.immutable.ParSeq[Int]
+//  found   : scala.collection.parallel.immutable.
+//              ParSeq[Int]
 //  required: Seq[Int]
 //               sss(List(2,3,4).par)
 //                               ^
@@ -363,15 +372,15 @@ val x2 = x map { x => x * 3 }
 val x3 = x map { _ * 3 }
 // x3: List[Int] = List(0, 3, 6, 9, 12)
 val x4 = x map { _ * 0.1 }
-// x4: List[Double] = List(0.0, 0.1, 0.2, 0.30000000000000004, 0.4)
+// x4: List[Double] = List(0.0, 0.1, 0.2, 0.3, 0.4)
 
 
 val xv = x.toVector
 // xv: Vector[Int] = Vector(0, 1, 2, 3, 4)
 val xv2 = xv map { _ * 0.2 }
-// xv2: Vector[Double] = Vector(0.0, 0.2, 0.4, 0.6000000000000001, 0.8)
+// xv2: Vector[Double] = Vector(0.0,0.2,0.4,0.6,0.8)
 val xv3 = for (xi <- xv) yield (xi * 0.2)
-// xv3: Vector[Double] = Vector(0.0, 0.2, 0.4, 0.6000000000000001, 0.8)
+// xv3: Vector[Double] = Vector(0.0,0.2,0.4,0.6,0.8)
 
 
 trait F[T] {
@@ -393,9 +402,9 @@ val x6 = x flatMap { x => List(x - 0.1, x + 0.1) }
 val y = (0 to 12 by 2).toList
 // y: List[Int] = List(0, 2, 4, 6, 8, 10, 12)
 val xy = x flatMap { xi => y map { yi => xi * yi } }
-// xy: List[Int] = List(0, 0, 0, 0, 0, 0, 0, 0, 2, 4, 6,
-//   8, 10, 12, 0, 4, 8, 12, 16, 20, 24, 0, 6, 12, 18,
-//   24, 30, 36, 0, 8, 16, 24, 32, 40, 48)
+// xy: List[Int] = List(0, 0, 0, 0, 0, 0, 0, 0, 2, 4,
+// 6, 8, 10, 12, 0, 4, 8, 12, 16, 20, 24, 0, 6, 12,
+// 18, 24, 30, 36, 0, 8, 16, 24, 32, 40, 48)
 
 
 val xy2 = for {
@@ -476,34 +485,38 @@ val c = safeChol(m)
 // 0.7071067811865475  1.5811388300841898  )
 val m2 = DenseMatrix((1.0, 2.0), (2.0, 3.0))
 val c2 = safeChol(m2)
-// c2: Option[breeze.linalg.DenseMatrix[Double]] = None
+// c2: Option[breeze.linalg.DenseMatrix[Double]]=None
 
 
-import com.github.fommil.netlib.BLAS.{getInstance => blas}
+import com.github.fommil.netlib.BLAS.{getInstance =>
+    blas}
 def dangerousForwardSolve(A: DenseMatrix[Double],
   y: DenseVector[Double]): DenseVector[Double] = {
   val yc = y.copy
-  blas.dtrsv("L", "N", "N", A.cols, A.toArray, A.rows, yc.data, 1)
+  blas.dtrsv("L", "N", "N", A.cols, A.toArray, A.rows,
+    yc.data, 1)
   yc
 }
 def safeForwardSolve(A: DenseMatrix[Double],
-  y: DenseVector[Double]): Option[DenseVector[Double]] =
+  y:DenseVector[Double]): Option[DenseVector[Double]]=
   scala.util.Try(dangerousForwardSolve(A, y)).toOption
 
 
-def safeStd(A: DenseMatrix[Double], y: DenseVector[Double]):
+def safeStd(A: DenseMatrix[Double],
+  y: DenseVector[Double]):
   Option[DenseVector[Double]] = for {
-  L <- safeChol(A)
-  z <- safeForwardSolve(L, y)
-} yield z
+    L <- safeChol(A)
+    z <- safeForwardSolve(L, y)
+  } yield z
 
 safeStd(m,DenseVector(1.0,2.0))
 // res15: Option[breeze.linalg.DenseVector[Double]] =
-//   Some(DenseVector(0.7071067811865475, 0.9486832980505138))
+//   Some(DenseVector(0.707106781186, 0.948683298050))
 
 
 import scala.concurrent.duration._
-import scala.concurrent.{Future,ExecutionContext,Await}
+import scala.concurrent.{Future, ExecutionContext,
+  Await}
 import ExecutionContext.Implicits.global
 val f1=Future{
   Thread.sleep(10000)

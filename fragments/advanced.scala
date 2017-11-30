@@ -6,7 +6,8 @@ List(1.0,5.0).sum
 
 
 Vector(1,2,3).mean
-// <console>:8: error: value mean is not a member of Vector[Int]
+// <console>:8: error: value mean is not a member of
+//   Vector[Int]
 //               Vector(1,2,3).mean
 //                             ^
 
