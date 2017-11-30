@@ -2,8 +2,8 @@
 set scalaVersion := "2.12.1"
 
 
-set libraryDependencies += "org.scalanlp" %% "breeze" % "0.13"
-set libraryDependencies += "org.scalanlp" %% "breeze-natives" % "0.13"
+set libraryDependencies+="org.scalanlp"%%"breeze"%"0.13"
+set libraryDependencies+="org.scalanlp"%%"breeze-natives"%"0.13"
 
 
  object Metropolis {
@@ -27,7 +27,7 @@ addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.4")
 
 
 set scalaVersion := "2.12.1"
-set libraryDependencies += "org.ddahl" %% "rscala" % "2.0.1"
+set libraryDependencies+="org.ddahl"%%"rscala"%"2.0.1"
 console
 
 

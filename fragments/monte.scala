@@ -206,15 +206,15 @@ def newState(x: Double, oldll: Double, eps: Double):
   }
 
 
-  @tailrec
-  def metrop6(n: Int = 1000, eps: Double = 0.5,
-   x: Double = 0.0, oldll: Double = Double.MinValue,
-   acc: List[Double] = Nil): DenseVector[Double] = {
-    if (n == 0) DenseVector(acc.reverse.toArray) else {
-      val (nx, ll) = newState(x, oldll, eps)
-      metrop6(n - 1, eps, nx, ll, nx :: acc)
-    }
-  }
+ @tailrec
+ def metrop6(n: Int = 1000, eps: Double = 0.5,
+  x: Double = 0.0, oldll: Double = Double.MinValue,
+  acc: List[Double] = Nil): DenseVector[Double] = {
+   if (n == 0) DenseVector(acc.reverse.toArray) else {
+     val (nx, ll) = newState(x, oldll, eps)
+     metrop6(n - 1, eps, nx, ll, nx :: acc)
+   }
+ }
 
 
 def nextState(eps: Double)(state: (Double, Double)):
@@ -230,7 +230,7 @@ def nextState(eps: Double)(state: (Double, Double)):
 
 def metrop7(eps: Double = 0.5, x: Double = 0.0,
  oldll: Double = Double.MinValue): Stream[Double] =
-  Stream.iterate((x, oldll))(nextState(eps)) map (_._1)
+  Stream.iterate((x,oldll))(nextState(eps)) map (_._1)
 
 
 def kernel(x: Double): Rand[Double] = for {
@@ -280,10 +280,10 @@ import breeze.stats.distributions._
 // import breeze.stats.distributions._
 
 def nextState(state: State): State = {
-  val sy = state.y
-  val x = Gamma(3.0,1.0/(sy*sy+4)).draw
-  val y = Gaussian(1.0/(x+1),1.0/math.sqrt(2*x+2)).draw
-  State(x,y)
+ val sy = state.y
+ val x = Gamma(3.0,1.0/(sy*sy+4)).draw
+ val y = Gaussian(1.0/(x+1),1.0/math.sqrt(2*x+2)).draw
+ State(x,y)
 }
 
 
