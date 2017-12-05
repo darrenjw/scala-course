@@ -1,6 +1,6 @@
 # IntelliJ installation and setup
 
-*Please note that IntelliJ is not the recommended IDE for this course - use at your own risk*
+*Please note that IntelliJ is not the recommended IDE for this course - use at your own risk!*
 
 IntelliJ now seems to be the most popular IDE for Scala. Although the course instructor doesn't use it, he should be able to provide very limited support.
 

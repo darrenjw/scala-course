@@ -50,6 +50,7 @@ People starting out with programming in Scala are likely to benefit from writing
 
 * [Installing the ScalaIDE](ScalaIDE.md)
 * [Installing Ensime](Ensime.md)
+* [Installing IntelliJ](IntelliJ.md) (experimental)
 
 ### Download Apache Spark
 
