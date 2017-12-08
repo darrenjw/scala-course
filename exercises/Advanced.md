@@ -17,6 +17,13 @@ to your `build.sbt` file. The `sbt-test` example project is set up to allow expe
 ### 3. Probabilistic programming with Figaro
 
 * [Figaro](https://github.com/p2t2/figaro) is a library for probabilistic programming in Scala. Use the remaining time to read through the [Quick start guide](https://github.com/p2t2/figaro/raw/master/doc/Figaro%20Quick%20Start%20Guide.pdf) and then skim the [Tutorial](https://www.cra.com/sites/default/files/pdf/Figaro_Tutorial.pdf). Try to build and run the example from the quick start guide.
+* Note that from a clean SBT session (say, run from an empty/temp directory), a REPL with a Figaro dependency can be started with:
+```scala
+set libraryDependencies += "com.cra.figaro" %% "figaro" % "5.0.0.0"
+set scalaVersion := "2.12.1"
+console
+```
+
 
 
 #### eof
