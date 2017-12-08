@@ -47,7 +47,7 @@ plot.show
 This plot is rendered as a window in your OS window manager, but Vegas can render in other ways, for example, as HTML to display in a browser, and it is also designed to run within "notebook" environments such as [Jupyter](https://github.com/jupyter-scala/jupyter-scala/blob/master/README.md) and [Spark Notebook](https://github.com/spark-notebook/spark-notebook/blob/master/README.md).
 * Try creating some more Vegas plots by copy-and-pasting code from the [example Jupyter notebook](http://nbviewer.jupyter.org/github/aishfenton/Vegas/blob/master/notebooks/jupyter_example.ipynb).
 * Note that the simple example that we started with is available as a standalone app in the examples directory.
-
+* Later, you might want to watch [this talk](https://www.youtube.com/watch?v=R29K9mpaLqA), which gives a good introduction to and overview of Vegas. You can skip the first 3 minutes without loss.
 
 
 #### eof
