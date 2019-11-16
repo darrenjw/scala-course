@@ -1,6 +1,6 @@
 # Scala for Statistical Computing and Data Science Short Course
 
-**NOTE: I run this course in association with [Jumping Rivers Ltd.](http://www.jumpingrivers.com/). See their website for futher details on [course dates](http://www.jumpingrivers.com/dates), cost, registration and [course descriptions](http://www.jumpingrivers.com/courses). The description for this course is repeated below. Also note that I occasionally run this course in-house for companies - enquire with Jumping Rivers if your company is interested in this.**
+**I occasionally run this course in-house for companies - [email me](mailto:darrenjwilkinson@btinternet.com) if your company is interested in this. Also note that I run an advanced course on [Category theory for pure FP in Scala](https://github.com/darrenjw/fps-course)**
 
 *Registered course participants should bookmark the [Start Here](StartHere.md) page. Please carefully follow the [laptop setup instructions](Setup.md) in advance of the start of the course.*
 
