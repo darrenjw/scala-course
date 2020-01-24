@@ -1,5 +1,8 @@
 # Installing the Scala IDE
 
+### N.B. I'm leaving this page for historical reasons, but the Scala IDE is now considered obsolete
+
+
 ## Useful links
 
 * [ScalaIDE](http://scala-ide.org/) - based on Eclipse

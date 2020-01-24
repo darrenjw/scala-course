@@ -1,8 +1,6 @@
 # IntelliJ installation and setup
 
-*Please note that IntelliJ is not the recommended IDE for this course - use at your own risk!*
-
-IntelliJ now seems to be the most popular IDE for Scala. Although the course instructor doesn't use it, he should be able to provide very limited support.
+IntelliJ now seems to be the most popular IDE for Scala.
 
 ## Installation
 
@@ -18,7 +16,7 @@ IntelliJ now seems to be the most popular IDE for Scala. Although the course ins
   - the default import options are mostly fine, though you probably want to build with the *SBT shell*
 * IntelliJ can get confused if you try and import two different SBT projects with the same name
   - So, if you copy the `app-template` directory, you should edit the project name in `build.sbt` *before* trying to import it into IntelliJ
-  - Note that you may prefer to use `sbt new darrenjw/breeze.g8` to directly create an app template with an appropriate name and then import that
+  - **Note** that you may prefer to use `sbt new darrenjw/breeze.g8` to directly create an app template with an *appropriate name* and then import that
 
 
 
