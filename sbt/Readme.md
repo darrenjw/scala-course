@@ -6,8 +6,7 @@ Some useful links relating to `sbt` are given below:
 
 * [sbt](http://www.scala-sbt.org/)
   * [Documentation](http://www.scala-sbt.org/documentation.html)
-    * [Installing](http://www.scala-sbt.org/1.3.3/docs/Setup.html)
-    * [Getting started guide](http://www.scala-sbt.org/1.3.3/docs/Getting-Started.html)
+  * [Download](https://www.scala-sbt.org/download.html)
 
 Please follow the relevant instructions for installing `sbt` on your OS.
 
