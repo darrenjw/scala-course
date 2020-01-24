@@ -13,6 +13,6 @@ libraryDependencies  ++= Seq(
  "org.scalanlp" %% "breeze-natives" % "0.13"
 )
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.10"
 
 
