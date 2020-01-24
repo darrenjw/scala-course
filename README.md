@@ -20,6 +20,6 @@ The course will be delivered through a combination of lectures, live demos and h
 
 #### Presenters
 
-The course will be delivered by [Prof Darren Wilkinson](https://www.staff.ncl.ac.uk/d.j.wilkinson/) (Newcastle University, U.K.). Prof Wilkinson is co-Director of Newcastle's [EPSRC Centre for Doctoral Training in Cloud Computing for Big Data](http://www.bigdata-cdt.ac.uk/). He is a well-known expert in computational Bayesian statistics and a leading proponent of the use of strongly-typed FP languages (such as Scala) for scalable statistical computing.
+The course will be delivered by [Prof Darren Wilkinson](https://darrenjw.github.io/) (Newcastle University, U.K.). Prof Wilkinson is co-Director of Newcastle's [EPSRC Centre for Doctoral Training in Cloud Computing for Big Data](http://www.bigdata-cdt.ac.uk/), and a [Turing Fellow](https://www.turing.ac.uk/people/researchers/darren-wilkinson). He is a well-known expert in computational Bayesian statistics and a leading proponent of the use of strongly-typed FP languages (such as Scala) for scalable statistical computing.
 
 

@@ -16,14 +16,14 @@ Further information is given below. For avoidance of doubt, I am *not* assuming 
 
 *This step requires root/administrator access to your laptop, so if you don't have this, you will need help from your system administrator*
 
-Versions of Scala prior to 2.12.x worked with Java 6 and Java 7, but the 2.12.x Scala releases require Java 8, as Java 8 introduced a number of features which make it a better target for Scala compilation. I will be using Scala 2.12.1 in the course, so Java 8 is required.
+Versions of Scala prior to 2.12.x worked with Java 6 and Java 7, but the 2.12.x Scala releases require Java 8, as Java 8 introduced a number of features which make it a better target for Scala compilation. I will be using Scala 2.12.1 in the course, so Java 8 is required. A more recent version of Java should also be fine.
 
 If you are running a Linux (or similar) system, you may prefer to use the [OpenJDK](http://openjdk.java.net/) rather than Oracle's Java. This is fine. On Debian-based Linux systems (including Ubuntu), this should be as simple as:
 ```bash
 sudo apt-get update
 sudo apt-get -y install openjdk-8-jdk
 ```
-It should be something similar on other Linux systems. For other OS's, you may want to search the Internet for the best way to install Java on your system. You should install the full Java development kit (JDK), and not just the runtime engine (JRE). If in doubt, try the Oracle Java JDK download page: http://www.oracle.com/technetwork/java/javase/downloads
+It should be something similar on other Linux systems. For other OS's, you may want to search the Internet for the best way to install Java on your system. **You should install the full Java development kit (JDK)**, and not just the runtime engine (JRE). If in doubt, try the Oracle Java JDK download page: http://www.oracle.com/technetwork/java/javase/downloads
 
 To check whether you have Java installed correctly, type `java -version` into a terminal window. If you get a version number of the form 1.8.x you should be fine.
 
@@ -46,17 +46,17 @@ wget https://github.com/darrenjw/scala-course/archive/master.zip
 
 ### Install a Scala IDE
 
-People starting out with programming in Scala are likely to benefit from writing code using an editor which can provide instant feedback and assistance. There are many possible options here, but it is not possible to provide support for every Scala-aware editor in existence. The course presenter uses [Emacs](https://www.gnu.org/software/emacs/) together with [Ensime](http://ensime.org/editors/emacs/install/), and considers this to be a good option for people already comfortable with the Emacs text editor. However, this is probably not a good option for people unfamiliar with Emacs. For everyone else, the [ScalaIDE](http://scala-ide.org/) (which is based on Eclipse) is probably a safer bet, and the course presenter has some familiarity with it, so should be able to provide basic support. The course presenters will not be able to provide support for any other editor or IDE. It is therefore strongly recommended that participants comfortable with Emacs set up Emacs with Ensime, and that everyone else installs the ScalaIDE. Switching to another editor/IDE in the future will be quite straightforward, but it will save a lot of time during the course if everyone uses one of the two recommended IDEs. See one of the following pages for further details:
+People starting out with programming in Scala are likely to benefit from writing code using an editor which can provide instant feedback and assistance. There are many possible options here, but it is not possible to provide support for every Scala-aware editor in existence. The course presenter uses [Emacs](https://www.gnu.org/software/emacs/) together with [Ensime](http://ensime.org/editors/emacs/install/), and considers this to be a good option for people already comfortable with the Emacs text editor. However, this is probably not a good option for people unfamiliar with Emacs. For everyone else, [IntelliJ](IntelliJ.md) is probably a safer bet, and the course presenter has some familiarity with it, so should be able to provide basic support. The course presenter(s) will not be able to provide support for any other editor or IDE. It is therefore strongly recommended that participants comfortable with Emacs set up Emacs with Ensime, and that everyone else installs IntelliJ. Switching to another editor/IDE in the future will be quite straightforward, but it will save a lot of time during the course if everyone uses one of the two recommended IDEs. See one of the following pages for further details:
 
-* [Installing the ScalaIDE](ScalaIDE.md)
-* [Installing Ensime](Ensime.md)
 * [Installing IntelliJ](IntelliJ.md) (experimental)
+* [Installing Ensime](Ensime.md)
+* [Installing the ScalaIDE](ScalaIDE.md) (obsolete)
 
 ### Download Apache Spark
 
-In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.2.0](http://www.eu.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz) package to their system in advance. Linux users can download from a terminal with a command like:
+In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.4.4](http://www.eu.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz) package to their system in advance. Linux users can download from a terminal with a command like:
 ```bash
-wget http://www.eu.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
+wget http://www.eu.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
 ```
 You should make sure that you have a tool on your system which can unpack a "tgz" file (no issue for Linux users), but there is no need to "install" Spark - we will walk through installation/setup as part of the course.
 
