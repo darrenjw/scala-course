@@ -48,8 +48,8 @@ wget https://github.com/darrenjw/scala-course/archive/master.zip
 
 People starting out with programming in Scala are likely to benefit from writing code using an editor which can provide instant feedback and assistance. There are many possible options here, but it is not possible to provide support for every Scala-aware editor in existence. The course presenter uses [Emacs](https://www.gnu.org/software/emacs/) together with [Ensime](http://ensime.org/editors/emacs/install/), and considers this to be a good option for people already comfortable with the Emacs text editor. However, this is probably not a good option for people unfamiliar with Emacs. For everyone else, [IntelliJ](IntelliJ.md) is probably a safer bet, and the course presenter has some familiarity with it, so should be able to provide basic support. The course presenter(s) will not be able to provide support for any other editor or IDE. It is therefore strongly recommended that participants comfortable with Emacs set up Emacs with Ensime, and that everyone else installs IntelliJ. Switching to another editor/IDE in the future will be quite straightforward, but it will save a lot of time during the course if everyone uses one of the two recommended IDEs. See one of the following pages for further details:
 
-* [Installing IntelliJ](IntelliJ.md) (experimental)
-* [Installing Ensime](Ensime.md)
+* [Installing IntelliJ](IntelliJ.md)
+* [Installing Ensime](Ensime.md) (for Emacs users only)
 * [Installing the ScalaIDE](ScalaIDE.md) (obsolete)
 
 ### Download Apache Spark
