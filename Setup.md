@@ -16,7 +16,7 @@ Further information is given below. For avoidance of doubt, I am *not* assuming 
 
 *This step requires root/administrator access to your laptop, so if you don't have this, you will need help from your system administrator*
 
-Versions of Scala prior to 2.12.x worked with Java 6 and Java 7, but the 2.12.x Scala releases require Java 8, as Java 8 introduced a number of features which make it a better target for Scala compilation. I will be using Scala 2.12.1 in the course, so Java 8 is required. A more recent version of Java should also be fine.
+Versions of Scala prior to 2.12.x worked with Java 6 and Java 7, but the 2.12.x Scala releases require Java 8, as Java 8 introduced a number of features which make it a better target for Scala compilation. I will be using Scala 2.12.10 in the course, so Java 8 is required. A more recent version of Java (eg. Java 11) should also be fine.
 
 If you are running a Linux (or similar) system, you may prefer to use the [OpenJDK](http://openjdk.java.net/) rather than Oracle's Java. This is fine. On Debian-based Linux systems (including Ubuntu), this should be as simple as:
 ```bash
