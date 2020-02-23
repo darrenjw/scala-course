@@ -1,29 +1,35 @@
 
-set scalaVersion := "2.12.1"
+set scalaVersion := "2.12.10"
 
 
-set libraryDependencies+="org.scalanlp"%%"breeze"%"0.13"
-set libraryDependencies+="org.scalanlp"%%"breeze-natives"%"0.13"
+set libraryDependencies+="org.scalanlp"%%"breeze"%"1.0"
+set libraryDependencies+="org.scalanlp"%%"breeze-natives"%"1.0"
 
 
- object Metropolis {
+object Metropolis {
 
   import breeze.stats.distributions._
 
-  val chain = MarkovChain.
-    metropolisHastings(0.0, 
-      (x: Double) => Uniform(x-0.5, x+0.5))(x => 
-        Gaussian(0.0, 1.0).logPdf(x)).steps
+  def kernel(x: Double): Rand[Double] = for {
+    innov <- Uniform(-0.5, 0.5)
+    can = x + innov
+    oldll = Gaussian(0.0, 1.0).logPdf(x)
+    loglik = Gaussian(0.0, 1.0).logPdf(can)
+    loga = loglik - oldll
+    u <- Uniform(0.0, 1.0)
+  } yield if (math.log(u) < loga) can else x
+
+  val chain = Stream.iterate(0.0)(kernel(_).draw)
 
   def main(args: Array[String]): Unit = {
     val n = if (args.size == 0) 10 else args(0).toInt
     chain.take(n).toArray.foreach(println)
   }
 
-}   
+}
 
 
-addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.4")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")
 
 
 set scalaVersion := "2.12.1"

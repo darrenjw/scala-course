@@ -170,11 +170,10 @@ object MCMC {
     metrop5(10)
     metrop6(10).foreach(println)
     metrop7().take(10).foreach(println)
-    MarkovChain(0.0)(kernel).steps.take(10).foreach(println)
-    MarkovChain.metropolisHastings(0.0, (x: Double) => Uniform(x - 0.5, x + 0.5))(x => Gaussian(0.0, 1.0).logPdf(x)).steps.take(10).toArray.foreach(println)
+    val ms = Stream.iterate(0.0)(kernel(_).draw)
+    ms.take(10).foreach(println)
     // plot output to check it looks OK
-    mcmcSummary(DenseVector(MarkovChain.metropolisHastings(0.0,(x: Double)=>Uniform(x-0.5,x+0.5))(x=>Gaussian(0.0,1.0).logPdf(x)).steps.take(100000).toArray))
-
+    mcmcSummary(DenseVector(ms.take(100000).toArray))
     // timings...
     val N=1000000
     println("metrop1:")
@@ -186,9 +185,8 @@ object MCMC {
     println("metrop7:")
     time(metrop7().take(N).toArray)
     println("MarkovChain with custom kernel")
-    time(MarkovChain(0.0)(kernel).steps.take(N).toArray)
-    println("MarkovChain.metropolisHastings:")
-    time(MarkovChain.metropolisHastings(0.0, (x: Double) => Uniform(x - 0.5, x + 0.5))(x => Gaussian(0.0, 1.0).logPdf(x)).steps.take(N).toArray)
+    time(Stream.iterate(0.0)(kernel(_).draw).take(N).toArray)
+
     println("Bye")
   }
 

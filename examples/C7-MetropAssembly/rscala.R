@@ -3,11 +3,10 @@
 library(rscala)
 
 sc = scala(
- "target/scala-2.12/metropolis-assembly-assembly-0.1.jar",
- scala.home="~/.rscala/scala-2.12.3"
+ "target/scala-2.12/metropolis-assembly-assembly-0.1.jar"
 )
 
-met = sc %~% 'Metropolis.chain.take(10000).toArray'
+met = sc * 'Metropolis.chain.take(10000).toArray'
 
 library(smfsb)
 mcmcSummary(matrix(met,ncol=1))

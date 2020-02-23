@@ -243,21 +243,11 @@ def kernel(x: Double): Rand[Double] = for {
 } yield if (math.log(u) < loga) can else x
 
 
-MarkovChain(0.0)(kernel).
-  steps.
-  drop(1000).
-  take(10000).
-  foreach(println)
-
-
-MarkovChain.
-  metropolisHastings(0.0, (x: Double) =>
-  Uniform(x - 0.5, x + 0.5))(x =>
-  Gaussian(0.0, 1.0).logPdf(x)).
-  steps.
-  drop(1000).
-  take(10000).
-  toArray
+val ms = Stream.iterate(0.0)(kernel(_).draw)
+ms.
+drop(1000).
+take(10000).
+foreach(println)
 
 
 case class State(x: Double, y: Double)
@@ -326,8 +316,7 @@ def kernel(state: State): Rand[State] = for {
   ns = State(x,y)
 } yield ns
 
-val out3 = MarkovChain(State(1.0,1.0))(kernel).
-  steps.
+val out3 = Stream.iterate(State(1.0,1.0))(kernel(_).draw).
   drop(1000).
   take(10000).
   toArray
