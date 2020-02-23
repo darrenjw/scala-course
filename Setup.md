@@ -54,9 +54,9 @@ People starting out with programming in Scala are likely to benefit from writing
 
 ### Download Apache Spark
 
-In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.4.4](http://www.eu.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz) package to their system in advance. Linux users can download from a terminal with a command like:
+In case of a poor Internet connection during the course, it will be helpful if everyone could download this [Apache Spark 2.4.5](https://downloads.apache.org/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz) package to their system in advance. Linux users can download from a terminal with a command like:
 ```bash
-wget http://www.eu.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
+wget https://downloads.apache.org/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz
 ```
 You should make sure that you have a tool on your system which can unpack a "tgz" file (no issue for Linux users), but there is no need to "install" Spark - we will walk through installation/setup as part of the course.
 
