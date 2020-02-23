@@ -1,0 +1,32 @@
+import org.scalatest.flatspec.{AnyFlatSpec}
+import org.scalatest.matchers.should.Matchers
+
+//import org.scalatestplus.scalacheck._
+import org.scalacheck._
+//import Gen._
+//import Arbitrary.arbitrary
+
+class StringSpecification extends AnyFlatSpec with Matchers with ScalacheckPropertyChecks {
+
+  "Concatenated strings" should "startwith first string" in {
+    forAll((String, String)) { (a, b) =>
+      (a+b).startsWith(a)
+    } 
+  }
+
+  property("concatenate") {
+    forAll { (a: String, b: String) =>
+      (a+b).length >= a.length && (a+b).length >= b.length
+    }
+  }
+
+  property("substring") {
+    forAll { (a: String, b: String, c: String) =>
+      (a+b+c).substring(a.length, a.length+b.length) == b
+    }
+  }
+
+}
+
+// eof
+

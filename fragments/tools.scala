@@ -32,8 +32,8 @@ object Metropolis {
 addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")
 
 
-set scalaVersion := "2.12.1"
-set libraryDependencies+="org.ddahl"%%"rscala"%"2.0.1"
+set scalaVersion := "2.12.10"
+set libraryDependencies+="org.ddahl"%%"rscala"%"3.2.18"
 console
 
 
@@ -59,10 +59,9 @@ val d2 = R.evalD2("matrix(rnorm(6),nrow=2)")
 
 
 
-R.vec = (1 to 10).toArray // send data to R
-// R.vec: (Any, String) = ([I@1e009fac,Array[Int])
+R.eval("vec = %-", (1 to 10).toArray) // send data to R
 R.evalI1("vec")
-// res1: Array[Int] = Array(1,2,3,4,5,6,7,8,9,10)
+// res9: Array[Int] = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 
 R eval """
@@ -72,7 +71,7 @@ mat1 = matrix(vec3,ncol=5)
 """
 
 
-R.getI2("mat1") // get data back from R
+R.evalI2("mat1") // get data back from R
 // res3: Array[Array[Int]] = Array(Array(2, 8, 4, ...
 
 
@@ -90,17 +89,14 @@ val y = mu map (Poisson(_).draw)
 
 
 val R = RClient() // initialise an R interpreter
-// R: RClient = RClient@45768f22
-R.x=x.toArray // send x to R
-// R.x: (Any, String) = ([D@6c7e65fb,Array[Double])
-R.y=y.toArray // send y to R
-// R.y: (Any, String) = ([I@65a9a726,Array[Int])
-R.eval("mod = glm(y~x,family=poisson())") // fit 
+// R: RClient = RClient@661e0a99
+R.eval("x = %-", x.toArray) // send x to R
+R.eval("y = %-", y.toArray) // send y to R
+R.eval("mod = glm(y~x,family=poisson())") // fit in R
 // pull the fitted coefficents back into scala
 DenseVector[Double](R.evalD1("mod$coefficients"))
-// res6: breeze.linalg.DenseVector[Double] =
-//   DenseVector(-2.98680078148213,
-//      0.09959046899061315)
+// res9: DenseVector[Double] = DenseVector(
+//    -2.93361267743947, 0.09875286320703261)
 
 
 require(1 == 1) // satisfied
@@ -123,15 +119,13 @@ sqrt(2.0) // works as expected
 scalacOptions += "-Xdisable-assertions"
 
 
-import org.scalatest.FlatSpec
-
-class SetSpec extends FlatSpec {
+class SetSpec extends AnyFlatSpec {
 
   "An empty Set" should "have size 0" in {
     assert(Set.empty.size == 0)
   }
 
-  it should "throw an exception with head" in {
+  it should "produce NoSuchElementException when head is invoked" in {
     assertThrows[NoSuchElementException] {
       Set.empty.head
     }

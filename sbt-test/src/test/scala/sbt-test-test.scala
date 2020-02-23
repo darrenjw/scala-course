@@ -1,9 +1,9 @@
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
 // Here using FunSuite style - but other possibilities...
 // http://www.scalatest.org/user_guide/selecting_a_style
 
-class SetSuite extends FunSuite {
+class SetSuite extends AnyFunSuite {
 
   test("An empty Set should have size 0") {
     assert(Set.empty.size == 0)
