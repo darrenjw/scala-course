@@ -603,6 +603,15 @@ new PrintWriter("out.csv") {
 }
 
 
+val df2 = smile.read.csv("../r/cars93.csv")
+val df3 = df2.filter{ _("EngineSize").asInstanceOf[Double] <= 4.0 }
+val w = df3.select("Weight")
+val wkg = w map {_(0).asInstanceOf[Int] * 0.453592}
+val wkgdf = smile.data.DataFrame.of(wkg.toArray.map(Array(_)),"WKG")
+val adf = df3 merge wkgdf
+smile.write.csv(adf,"cars-smile.csv")
+
+
 val df = spark.read.
          option("header", "true").
          option("inferSchema","true").
@@ -613,4 +622,83 @@ val df3=df2.withColumn("WeightKG",col)
 df3.write.format("com.databricks.spark.csv").
                          option("header","true").
                          save("out-csv")
+
+
+"com.github.haifengl" %% "smile-scala" % "2.1.1"
+
+
+val url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data"
+val fileName = "yacht.csv"
+
+// download the file to disk if it hasn't been already
+val file = new java.io.File(fileName)
+if (!file.exists) {
+  println("Downloading file...")
+  val s = new java.io.PrintWriter(file)
+  s.write("Resist,LongPos,PrisCoef,LDR,BDR,LBR,Froude\n")
+  val data = scala.io.Source.fromURL(url).getLines
+  data.foreach(l => s.write(l.trim.split(' ').filter(_ != "").mkString("",",","\n")))
+  s.close
+  println("File downloaded.")
+}
+
+// now read the data
+val df = smile.read.csv(fileName)
+println(df)
+println(df.summary)
+
+
+import smile.data.formula._
+import scala.language.postfixOps
+smile.regression.ols("Resist" ~, df)
+
+// Linear Model:
+// 
+// Residuals:
+//        Min        1Q	    Median        3Q       Max
+//    -2.7464   -0.0521	    0.0600    0.1549    2.4733
+// 
+// Coefficients:
+//              Estimate Std. Error  t value  Pr(>|t|)
+// Intercept     -0.0555     4.6240  -0.0120    0.9904 
+// LongPos       -3.7078     7.5220  -0.4929    0.6224 
+// PrisCoef      -1.1756     2.4132  -0.4871    0.6265 
+// LDR            0.4663     0.9406   0.4957    0.6205 
+// BDR            1.1528     2.4192   0.4765    0.6340 
+// LBR           -0.6848     1.4736  -0.4647    0.6425 
+// Froude         0.0056     0.0098   0.5734    0.5668 
+// ---------------------------------------------------------------------
+// Significance codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+// 
+// Residual standard error: 1.5267 on 301 degrees of freedom
+// Multiple R-squared: 0.0020, Adjusted R-squared: -0.0179
+// F-statistic: 0.0987 on 6 and 301 DF,  p-value: 0.9965
+
+
+libraryDependencies += "com.stripe" %% "rainier-core" % "0.3.0"
+
+
+import com.stripe.rainier.core._
+import com.stripe.rainier.compute._
+import com.stripe.rainier.sampler._
+val n = 1000
+val mu = 3.0
+val sig = 5.0
+implicit val rng = ScalaRNG(3)
+val x = Vector.fill(n)(mu + sig*rng.standardNormal) 
+
+
+val m = Normal(0,100).latent
+val s = Gamma(1,10).latent
+val model = Model.observe(x, Normal(m,s))
+
+
+val sampler = EHMC(warmupIterations = 5000, iterations = 5000)
+val out = model.sample(sampler)
+val mut = out.predict(m)
+val sigt = out.predict(s)
+mut.sum/mut.length
+// res4: Double = 2.976841199039055
+sigt.sum/sigt.length
+// res5: Double = 4.9790361575463615
 

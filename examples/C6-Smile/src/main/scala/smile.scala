@@ -44,28 +44,6 @@ object SmileApp {
     println(buildFormula("Resist" ~).x(df).summary)
 
 
-    // cars df exercise
-    val df2 = smile.read.csv("../C6-DataFrames/r/cars93.csv")
-    println(df2.summary)
-    val df3 = df2.filter{ _("EngineSize").asInstanceOf[Double] <= 4.0 }
-    println(df3.summary)
-    val w = df3.select("Weight")
-    println(w)
-    println(w(0))
-    val wkg = w map {_(0).asInstanceOf[Int] * 0.453592}
-    println(wkg)
-    val wkgdf = smile.data.DataFrame.of(wkg.toArray.map(Array(_)),"WKG")
-    println(wkgdf)
-    println(wkgdf.summary)
-    val adf = df3 merge wkgdf
-    println(adf)
-    println(adf.summary)
-    smile.write.csv(adf,"cars-smile.csv")
-    // read it back for good measure...
-    val rdf = smile.read.csv("cars-smile.csv")
-    println(rdf)
-    println(rdf.summary)
-
   }
 
 }
