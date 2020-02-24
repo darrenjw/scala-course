@@ -5,10 +5,10 @@
 //       ____              __
 //      / __/__  ___ _____/ /__
 //     _\ \/ _ \/ _ `/ __/  '_/
-//    /___/ .__/\_,_/_/ /_/\_\   version 2.2.0
+//    /___/ .__/\_,_/_/ /_/\_\   version 2.4.5
 //       /_/
 //          
-// Using Scala version 2.11.8 
+// Using Scala version 2.11.12 
 // Type in expressions to have them evaluated.
 // Type :help for more information.
 
@@ -495,11 +495,11 @@ name := "spark-template"
 version := "0.1"
 
 libraryDependencies  ++= Seq(
-  "org.apache.spark" %% "spark-core" % "2.2.0" % Provided,
-  "org.apache.spark" %% "spark-sql" % "2.2.0" % Provided
+  "org.apache.spark" %% "spark-core" % "2.4.5" % Provided,
+  "org.apache.spark" %% "spark-sql" % "2.4.5" % Provided
 )
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
 
 import org.apache.spark.SparkContext

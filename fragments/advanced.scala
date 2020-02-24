@@ -189,7 +189,7 @@ val mll = pfMll(
 )
 
 
-libraryDependencies += "org.typelevel" %% "cats" % "0.9.0"
+libraryDependencies += "org.typelevel" %% "cats-core" % "1.0.0"
 
 
 import cats.Monoid
