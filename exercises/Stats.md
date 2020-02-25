@@ -2,6 +2,8 @@
 
 ## Practical exercises
 
+You should selectively choose from this collection of exercises according to your personal interests.
+
 ### 1. Linear regression modelling
 
 * Run the [regression example](../examples/C6-Regression/) for the [yacht hydrodynamics dataset](http://archive.ics.uci.edu/ml/datasets/Yacht+Hydrodynamics), and go through the code carefully to understand exactly how it works. 
@@ -20,6 +22,13 @@ I've created a small library for fitting linear and generalised linear models, b
 * Try it out and make sure you know how to use it.
 * Once you have figured out how it works, take some time to browse the source code. This is a small library with a relatively simple structure. It serves as an example of how to create a small library with a few source files and a few test files. It is a little bit bigger than the very small examples we have been focussing on in this course, but a lot smaller than a large library like Breeze, which can be a bit daunting at first.
 * Look at how I've (re-)structured the GLM code, and how I've implemented the IRLS algorithm.
+
+### 4. Smile
+
+### 5. Rainier
+
+
+
 
 
 #### eof
