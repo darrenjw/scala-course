@@ -150,7 +150,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalacheck._
 import org.scalacheck.Prop.{forAll, propBoolean}
 
-class StringSpecification extends Properties("String") with Matchers {
+class StringSpec extends Properties("String") with Matchers {
 
   property("startwith first string") =
     forAll { (a: String, b: String) =>

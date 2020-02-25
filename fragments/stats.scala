@@ -660,6 +660,7 @@ df
 // +-------+--------+----+----+----+------+------+
 // 298 more rows...
 
+
 df.summary
 // [column: String, count: long, min: double, avg: double, max: double]
 // +--------+-----+-----+---------+-----+
