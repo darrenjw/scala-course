@@ -18,28 +18,31 @@ object SmileApp {
     if (!file.exists) {
       println("Downloading file...")
       val s = new java.io.PrintWriter(file)
-      s.write("Resist,LongPos,PrisCoef,LDR,BDR,LBR,Froude\n")
+      s.write("LongPos,PrisCoef,LDR,BDR,LBR,Froude,Resist\n")
       val data = scala.io.Source.fromURL(url).getLines
       data.foreach(l => s.write(l.trim.split(' ').filter(_ != "").mkString("",",","\n")))
       s.close
       println("File downloaded.")
     }
 
-    // now read the data
+    println("Read the data from CSV into a DataFrame")
     val df = smile.read.csv(fileName)
     println(df)
     println(df.summary)
 
-    // simple OLS regression (normalising all variables...)
+    println("Simple OLS regression")
     import smile.data.formula._
     import scala.language.postfixOps
-
     val mod = smile.regression.ols("Resist" ~, df)
     println(mod)
+    println(smile.regression.ols("Resist" ~ "Froude", df))
+    println(smile.regression.ols("Resist" ~ "Froude" + "LongPos", df))
 
-    // try to figure out what's going on...
+    println("Understand formula parsing...")
+    println(buildFormula("Resist" ~).y(df))
     println(buildFormula("Resist" ~).y(df).toDoubleArray)
     println(buildFormula("Resist" ~).matrix(df, true))
+    println(buildFormula("Resist" ~).matrix(df, true).toArray)
     println(buildFormula("Resist" ~).x(df))
     println(buildFormula("Resist" ~).x(df).summary)
 
