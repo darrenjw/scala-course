@@ -3,35 +3,29 @@
 ## A curated set of links to useful additional on-line resources
 
 * [Official Scala website](http://www.scala-lang.org/)
-  * [Documentation](http://www.scala-lang.org/documentation/)
-    * [Tutorials](http://docs.scala-lang.org/tutorials/)
-      * [Tour](http://docs.scala-lang.org/tutorials/tour/tour-of-scala.html)
-        * [Basics](http://docs.scala-lang.org/tutorials/tour/basics.html)
-    * [Overviews](http://docs.scala-lang.org/overviews/)
-      * [Collections](http://docs.scala-lang.org/overviews/collections/overview.html)
-      * [Parallel collections](http://docs.scala-lang.org/overviews/parallel-collections/overview)
+  * [Documentation](http://docs.scala-lang.org/)
+    * [Getting started](https://docs.scala-lang.org/getting-started/)
+	  * [IntelliJ](https://docs.scala-lang.org/getting-started/intellij-track/getting-started-with-scala-in-intellij.html)
       * [Scaladoc](http://docs.scala-lang.org/overviews/scaladoc/overview.html)
-  * [API Docs](http://www.scala-lang.org/api/current/)
+  * [API Docs (2.12.10)](https://www.scala-lang.org/api/2.12.10/)
 * [Scala Exercises](https://www.scala-exercises.org/)
   * [Scala tutorial](https://www.scala-exercises.org/scala_tutorial/)
   * [Standard library](https://www.scala-exercises.org/std_lib/)
-* [sbt](http://www.scala-sbt.org/)
-  * [Documentation](http://www.scala-sbt.org/0.13/docs/index.html)
-    * [Getting started guide](http://www.scala-sbt.org/0.13/docs/Getting-Started.html)
+* [sbt](http://www.scala-sbt.org/) - build tool
   * [giter8 templates](https://github.com/foundweekends/giter8/wiki/giter8-templates)
-* [ScalaIDE](ScalaIDE.md) - my ScalaIDE instructions
-* [Ensime](Ensime.md) - my Emacs/Ensime/sbt instructions
-* [Breeze](https://github.com/scalanlp/breeze/)
+* [Breeze](https://github.com/scalanlp/breeze/) - numerical computing library
   * [Wiki](https://github.com/scalanlp/breeze/wiki)
     * [Quickstart](https://github.com/scalanlp/breeze/wiki/Quickstart)
     * [Linear algebra cheat sheet](https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet)
   * [API Docs](http://www.scalanlp.org/api/breeze/)
 * [Spire](https://github.com/non/spire/blob/master/README.md) - numeric types library
-* [ScalaTest](http://www.scalatest.org/)
-  * [User guide](http://www.scalatest.org/user_guide)
-* [ScalaCheck](https://www.scalacheck.org/)
-  * [User guide](https://github.com/rickynils/scalacheck/blob/master/doc/UserGuide.md)
-* [Apache Spark](http://spark.apache.org/)
+* [Smile](http://haifengl.github.io/) - basic stats and ML
+* [Rainier](https://rainier.fit/) - Bayesian modelling and probabilistic programming
+* [EvilPlot](https://cibotech.github.io/evilplot/) - plotting library
+* [Mdoc](https://scalameta.org/mdoc/) - typechecked Markdown for Scala
+* [ScalaTest](http://www.scalatest.org/) - popular unit testing library
+* [ScalaCheck](https://www.scalacheck.org/) - property-based testing
+* [Apache Spark](http://spark.apache.org/) - big data framework
   * [Downloads](http://spark.apache.org/downloads.html)
   * [Documentation](http://spark.apache.org/docs/latest/)
     * [Quick start](http://spark.apache.org/docs/latest/quick-start.html)
