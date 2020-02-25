@@ -23,7 +23,7 @@ From the SBT prompt, type `console` to get a REPL. Enter `1+2` to check it works
 
 ### 5. Scala basics tour
 
-Then read through the [basic tour](http://docs.scala-lang.org/tutorials/tour/basics.html) from the official [Scala documentation](http://docs.scala-lang.org/). Copy-and-paste commands from the browser into the REPL. Try to understand as much as possible as you go along. If you get it finished, browse some of the other official Scala documentation. You will want to bookmark this material to return to later.
+Start working throu the [basic tour](https://docs.scala-lang.org/tour/tour-of-scala.html) from the official [Scala documentation](http://docs.scala-lang.org/). When you get to the appropriate point in the tour, open Scala Fiddle in another browser tab and interactively explore Scala in the browser. Try to understand as much as possible as you go along. If you get it finished, browse some of the other official Scala documentation. You will want to bookmark this material to return to later.
 
 
 #### eof
