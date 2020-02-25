@@ -1,7 +1,6 @@
 import org.scalatest.funsuite.AnyFunSuite
 
 // Here using FunSuite style - but other possibilities...
-// http://www.scalatest.org/user_guide/selecting_a_style
 
 class SetSuite extends AnyFunSuite {
 

@@ -6,6 +6,7 @@ scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature","-language:implic
 
 libraryDependencies  ++= Seq(
             "org.scalatest" %% "scalatest" % "3.1.1" % "test",
+	    "org.scalacheck" %% "scalacheck" % "1.14.1" % "test",
             "org.scalanlp" %% "breeze" % "1.0",
             "org.scalanlp" %% "breeze-natives" % "1.0",
             "org.scalanlp" %% "breeze-viz" % "1.0",
