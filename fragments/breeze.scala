@@ -403,7 +403,7 @@ opt.minimize(df,DenseVector(0.0))
 // res67: DenseVector[Double] = DenseVector(5.0)  
 
 
-  "org.scalanlp" %% "breeze-viz" % "0.13"
+  "org.scalanlp" %% "breeze-viz" % "1.0"
 
 
 import breeze.plot._

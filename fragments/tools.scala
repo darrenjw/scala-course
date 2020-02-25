@@ -142,6 +142,48 @@ class SetSpec extends AnyFlatSpec {
   }
 
 
+"org.scalacheck" %% "scalacheck" % "1.14.1" % "test"
+
+
+import org.scalatest.matchers.should.Matchers
+
+import org.scalacheck._
+import org.scalacheck.Prop.{forAll, propBoolean}
+
+class StringSpecification extends Properties("String") with Matchers {
+
+  property("startwith first string") =
+    forAll { (a: String, b: String) =>
+      (a+b).startsWith(a)
+    } 
+
+  property("concatenate length") =
+    forAll { (a: String, b: String) =>
+      (a+b).length == a.length + b.length
+    }
+
+  property("substring") =
+    forAll { (a: String, b: String, c: String) =>
+      (a+b+c).substring(a.length, a.length+b.length) == b
+    }
+
+}
+
+
+class SqrtSpecification extends Properties("Sqrt") with Matchers {
+
+  property("math.sqrt should square to give original") =
+    forAll { a: Double =>
+      (a >= 0.0) ==> {
+        val s = math.sqrt(a)
+        val tol = 1e-8 * a
+        s*s === a +- tol
+      }
+    }
+
+}
+
+
 /**
   *  Take every th value from the stream s of type T
   * 
@@ -156,4 +198,44 @@ def thinStream[T](s: Stream[T],th: Int): Stream[T] = {
   if (ss.isEmpty) Stream.empty else
     ss.head #:: thinStream(ss.tail, th)
 }
+
+
+val x = 3 + 2
+// x: Int = 5
+
+
+addSbtPlugin("org.scalameta" % "sbt-mdoc" % "1.3.6")
+
+
+resolvers += Resolver.bintrayRepo("cibotech", "public")
+libraryDependencies += "com.cibo" %% "evilplot" % "0.6.3"
+libraryDependencies += "com.cibo" %% "evilplot-repl" % "0.6.3"
+
+
+import scala.util.Random
+import com.cibo.evilplot._
+import com.cibo.evilplot.plot._
+import com.cibo.evilplot.numeric._
+import com.cibo.evilplot.plot.renderers.PointRenderer
+import com.cibo.evilplot.plot.aesthetics.DefaultTheme._
+
+val points = Seq.fill(150) {
+  Point(Random.nextDouble(), Random.nextDouble())
+} :+ Point(0.0, 0.0)
+val years = Seq.fill(150)(Random.nextDouble()) :+ 1.0
+val yearMap = (points zip years).toMap.withDefaultValue(0.0)
+val plot = ScatterPlot(
+  points,
+  pointRenderer = Some(PointRenderer.depthColor((p: Point) =>
+    p.x, 0.0, 500.0, None, None))
+  ).standard()
+    .xLabel("x")
+    .yLabel("y")
+    .trend(1, 0)
+    .rightLegend()
+    .render()
+displayPlot(plot)
+
+
+val im = plot.asBufferedImage
 

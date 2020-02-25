@@ -629,50 +629,79 @@ df3.write.format("com.databricks.spark.csv").
 
 val url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data"
 val fileName = "yacht.csv"
-
 // download the file to disk if it hasn't been already
 val file = new java.io.File(fileName)
 if (!file.exists) {
-  println("Downloading file...")
   val s = new java.io.PrintWriter(file)
-  s.write("Resist,LongPos,PrisCoef,LDR,BDR,LBR,Froude\n")
+  s.write("LongPos,PrisCoef,LDR,BDR,LBR,Froude,Resist\n")
   val data = scala.io.Source.fromURL(url).getLines
   data.foreach(l => s.write(l.trim.split(' ').filter(_ != "").mkString("",",","\n")))
   s.close
-  println("File downloaded.")
 }
-
-// now read the data
+// now read the file from disk
 val df = smile.read.csv(fileName)
-println(df)
-println(df.summary)
+
+
+df
+// [LongPos: double, PrisCoef: double, LDR: double, BDR: double, LBR: double, Froude: double, Resist: double]
+// +-------+--------+----+----+----+------+------+
+// |LongPos|PrisCoef| LDR| BDR| LBR|Froude|Resist|
+// +-------+--------+----+----+----+------+------+
+// |   -2.3|   0.568|4.78|3.99|3.17| 0.125|  0.11|
+// |   -2.3|   0.568|4.78|3.99|3.17|  0.15|  0.27|
+// |   -2.3|   0.568|4.78|3.99|3.17| 0.175|  0.47|
+// |   -2.3|   0.568|4.78|3.99|3.17|   0.2|  0.78|
+// |   -2.3|   0.568|4.78|3.99|3.17| 0.225|  1.18|
+// |   -2.3|   0.568|4.78|3.99|3.17|  0.25|  1.82|
+// |   -2.3|   0.568|4.78|3.99|3.17| 0.275|  2.61|
+// |   -2.3|   0.568|4.78|3.99|3.17|   0.3|  3.76|
+// |   -2.3|   0.568|4.78|3.99|3.17| 0.325|  4.99|
+// |   -2.3|   0.568|4.78|3.99|3.17|  0.35|  7.16|
+// +-------+--------+----+----+----+------+------+
+// 298 more rows...
+
+df.summary
+// [column: String, count: long, min: double, avg: double, max: double]
+// +--------+-----+-----+---------+-----+
+// |  column|count|  min|      avg|  max|
+// +--------+-----+-----+---------+-----+
+// | LongPos|  308|   -5|-2.381818|    0|
+// |PrisCoef|  308| 0.53| 0.564136|  0.6|
+// |     LDR|  308| 4.34| 4.788636| 5.14|
+// |     BDR|  308| 2.81| 3.936818| 5.35|
+// |     LBR|  308| 2.73| 3.206818| 3.64|
+// |  Froude|  308|0.125|   0.2875| 0.45|
+// |  Resist|  308| 0.01|10.495357|62.42|
+// +--------+-----+-----+---------+-----+
 
 
 import smile.data.formula._
 import scala.language.postfixOps
 smile.regression.ols("Resist" ~, df)
-
 // Linear Model:
 // 
 // Residuals:
-//        Min        1Q	    Median        3Q       Max
-//    -2.7464   -0.0521	    0.0600    0.1549    2.4733
+//        Min        1Q	  Median        3Q       Max
+//   -11.7700   -7.5578	 -1.8198    6.1620   31.5715
 // 
 // Coefficients:
-//              Estimate Std. Error  t value  Pr(>|t|)
-// Intercept     -0.0555     4.6240  -0.0120    0.9904 
-// LongPos       -3.7078     7.5220  -0.4929    0.6224 
-// PrisCoef      -1.1756     2.4132  -0.4871    0.6265 
-// LDR            0.4663     0.9406   0.4957    0.6205 
-// BDR            1.1528     2.4192   0.4765    0.6340 
-// LBR           -0.6848     1.4736  -0.4647    0.6425 
-// Froude         0.0056     0.0098   0.5734    0.5668 
-// ---------------------------------------------------------------------
-// Significance codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+//             Estimate Std. Error  t value  Pr(>|t|)
+// Intercept   -19.2367    27.1133  -0.7095    0.4786 
+// LongPos       0.1938     0.3381   0.5734    0.5668 
+// PrisCoef     -6.4194    44.1590  -0.1454    0.8845 
+// LDR           4.2330    14.1651   0.2988    0.7653 
+// BDR          -1.7657     5.5212  -0.3198    0.7493 
+// LBR          -4.5164    14.2000  -0.3181    0.7507 
+// Froude      121.6676     5.0658  24.0175    0.0000 ***
+// ------------------------------------------------------
+// Significance codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 // 
-// Residual standard error: 1.5267 on 301 degrees of freedom
-// Multiple R-squared: 0.0020, Adjusted R-squared: -0.0179
-// F-statistic: 0.0987 on 6 and 301 DF,  p-value: 0.9965
+// Residual standard error: 8.9596 on 301 degrees of freedom
+// Multiple R-squared: 0.6576, Adjusted R-squared: 0.6507
+// F-statistic: 96.3327 on 6 and 301 DF, p-value: 4.526e-67
+
+
+smile.regression.ols("Resist" ~ "Froude" + "LongPos", df)
 
 
 libraryDependencies += "com.stripe" %% "rainier-core" % "0.3.0"
