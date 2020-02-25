@@ -18,7 +18,7 @@
     * [Quickstart](https://github.com/scalanlp/breeze/wiki/Quickstart)
     * [Linear algebra cheat sheet](https://github.com/scalanlp/breeze/wiki/Linear-Algebra-Cheat-Sheet)
   * [API Docs](http://www.scalanlp.org/api/breeze/)
-* [Spire](https://github.com/non/spire/blob/master/README.md) - numeric types library
+* [Spire](https://typelevel.org/spire) - numeric types library
 * [Smile](http://haifengl.github.io/) - basic stats and ML
 * [Rainier](https://rainier.fit/) - Bayesian modelling and probabilistic programming
 * [EvilPlot](https://cibotech.github.io/evilplot/) - plotting library
@@ -29,7 +29,7 @@
   * [Downloads](http://spark.apache.org/downloads.html)
   * [Documentation](http://spark.apache.org/docs/latest/)
     * [Quick start](http://spark.apache.org/docs/latest/quick-start.html)
-    * [Programming guide](http://spark.apache.org/docs/latest/programming-guide.html)
+    * [RDD Programming guide](http://spark.apache.org/docs/latest/rdd-programming-guide.html)
     * [SQL, DataFrames and Datasets](http://spark.apache.org/docs/latest/sql-programming-guide.html)
     * [MLlib](http://spark.apache.org/docs/latest/ml-guide.html)
       * [ML Pipelines](http://spark.apache.org/docs/latest/ml-pipeline.html)
@@ -39,7 +39,7 @@
   * [Type classes](http://typelevel.org/cats/typeclasses.html)
   * [Data types](http://typelevel.org/cats/datatypes.html)
   * [API Docs](http://typelevel.org/cats/api/cats/)
-* [Simulacrum](https://github.com/mpilquist/simulacrum/blob/master/README.md) - type class support
+* [Simulacrum](https://github.com/typelevel/simulacrum) - type class support
 
 * [Darren's Scala links](https://github.com/darrenjw/djwhacks/blob/master/scala/ScalaLinks.md) - a much less selective and less well curated set of Scala links
 
