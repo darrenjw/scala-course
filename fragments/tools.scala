@@ -207,6 +207,9 @@ val x = 3 + 2
 addSbtPlugin("org.scalameta" % "sbt-mdoc" % "1.3.6")
 
 
+enablePlugins(MdocPlugin)
+
+
 resolvers += Resolver.bintrayRepo("cibotech", "public")
 libraryDependencies += "com.cibo" %% "evilplot" % "0.6.3"
 libraryDependencies += "com.cibo" %% "evilplot-repl" % "0.6.3"

@@ -6,6 +6,8 @@ scalacOptions ++= Seq(
   "-unchecked", "-deprecation", "-feature"
 )
 
+enablePlugins(MdocPlugin)
+
 libraryDependencies  ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.8" % "test",
   "com.github.haifengl" %% "smile-scala" % "2.1.1"
