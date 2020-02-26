@@ -16,4 +16,6 @@ spark-submit --class "SparkApp" \
 target/scala-2.11/spark-template_2.11-0.1.jar
 ```
 
+This works fine here, since the application has no third-party dependencies. If it did, you would need to build and submit an assembly JAR.
+
 
