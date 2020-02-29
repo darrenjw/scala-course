@@ -188,21 +188,19 @@ object EvilPlotExamples {
   }
 
 
-  // TODO:
-  // Custom point rendering - broken??
-
-
   def main(args: Array[String]): Unit = {
     import com.cibo.evilplot.plot.aesthetics.DefaultTheme._
+    // some plots
     displayPlot(scatterExample())
-    //displayPlot(scatterHist())
-    //displayPlot(functionPlot())
-    //displayPlot(barChart())
-    //displayPlot(clusteredBar())
-    //displayPlot(boxPlot())
-    //displayPlot(pairsPlot())
+    displayPlot(scatterHist())
+    displayPlot(functionPlot())
+    displayPlot(barChart())
+    displayPlot(clusteredBar())
+    displayPlot(boxPlot())
+    displayPlot(pairsPlot())
     displayPlot(heatMap())
-    //displayPlot(contourPlot())
+    displayPlot(contourPlot())
+    // writing a plot to a bitmap image
     val bitmap = contourPlot().asBufferedImage
     javax.imageio.ImageIO.write(bitmap, "png", new java.io.File("image.png"))
   }
