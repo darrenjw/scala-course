@@ -45,7 +45,7 @@ console
 
 ### 7. Scala.js
 
-[Scala.js](https://www.scala-js.org/) is a framework for compiling Scala code to Javascript for client-side execution in web applications. If you do any front-end work, Scala.ja is one of the nicest ways to develop web applications. Many of the libraries we have considered, including EvilPlot, Cats, Simulacrum, Monocle, and Monix, are available for Scala.js as well as the usual JVM version of Scala. This makes it very easy to develop web applications which share code between the front and the back-end. It is particularly useful for developing web-based interactive dashboards for data science applications.
+[Scala.js](https://www.scala-js.org/) is a framework for compiling Scala code to Javascript for client-side execution in web applications. If you do any front-end work, Scala.ja is one of the nicest ways to develop web applications. Many of the libraries we have considered, including EvilPlot, Cats, Simulacrum, Monocle, and Monix, are available for Scala.js as well as the usual JVM version of Scala. This makes it very easy to develop web applications which share code between the front and the back-end. Some of the web sites we have used in this course, such as [scala-fiddle](https://scalafiddle.io/) and [scala-exercises](https://www.scala-exercises.org/) are powered by Scala.js. It is particularly useful for developing web-based interactive dashboards for data science applications.
 * Try one of the [tutorials](https://www.scala-js.org/doc/tutorial/) to get started
 
 ### 8. Scala-native
