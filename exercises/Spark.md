@@ -4,7 +4,7 @@
 
 ### 1. Unpack, test and configure Spark
 
-* blah
+* Carefully work through the Spark chapter in the notes, unpacking, testing and configuring Spark as you go. Make sure that you can reproduce the first few examples before proceeding further.
 
 ### 2. Review some Spark documentation
 
