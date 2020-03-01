@@ -25,9 +25,19 @@ I've created a small library for fitting linear and generalised linear models, b
 
 ### 4. Smile
 
+[Smile](http://haifengl.github.io/) has lots of functionality relating to EDA, statistical modelling and machine learning, and can be used as a library from Scala. It's probably worth figuring out how to use it. I have an [example project](../examples/C6-Smile/) to show how to use it for a the yacht hydrodynamics linear regression example.
+
+* Run this example, and study the code to make sure you know how it works.
+* Adapt the code to analyse the airfoil self-noise data (from Exersice 1).
+* Write code to fit a logistic regression model to some simulated/synthetic data, and make sure that your Smile model recovers the true values used to simulate the data to a reasonable degree.
+* Try downloading and running Smile as a standalone piece of software, using the Smile shell/REPL.
+
 ### 5. Rainier
 
+If you want to go beyond simple statistical models, then a library for MCMC-based Bayesian hierarchical modelling is highly desirable. [Rainier](https://rainier.fit/) is an HMC-based Scala library, that is very useful for fitting random and mixed effects models in Scala. I have an [example project](../examples/C6-Rainier/) to show how to use it for a simple Bayesian logistic regression model.
 
+* Run this example, and study the code to make sure you know how it works.
+* Work through the Rainier docs tutorial, replicating the examples in the REPL. The `sbt console` associated with the above example project should be suitable for this.
 
 
 
