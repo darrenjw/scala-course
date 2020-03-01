@@ -18,9 +18,20 @@ to your `build.sbt` file. The `sbt-test` example project is set up to allow expe
 
 ### 3. Monocle
 
+[Monocle](https://julien-truffaut.github.io/Monocle/) is an *optics* library for Scala, intended to make it easier to work with immutable data structures based on (nested) algebraic data types (ADTs).
+
+* Work through the Getting started guide to get a bit of a feel for the problem that the library solves. If it seems interesting, continue to work through the rest of the documentation.
+
 ### 4. Monix
 
+[Monix](https://monix.io/) is a library for asyncronous and concurrent programming in Scala, including stream-based functional reactive programming (FRP), using a datatype known as `Observable`. It is one of many options for working with (real time) data streams in Scala. It also contains `Task`, which is a much better version of Scala's `Future` monad.
+
+* Start working through the documentation for [Observable](https://monix.io/docs/3x/reactive/observable.html), and then investigate further if the library seems interesting.
+
 ### 5. Frameless
+
+[Frameless](https://typelevel.org/frameless/) is a library which provides a safter, more idiomatic, Scala interface to Spark. If you intend to work a lot with Spark, it is worth trying to understand this library and the potential benefits it can bring.
+* Start by reading through the Introduction, then continue with the library documentation, learning first about `TypedDataset`.
 
 ### 6. Probabilistic programming with Figaro
 
@@ -34,9 +45,12 @@ console
 
 ### 7. Scala.js
 
+[Scala.js](https://www.scala-js.org/) is a framework for compiling Scala code to Javascript for client-side execution in web applications. If you do any front-end work, Scala.ja is one of the nicest ways to develop web applications. Many of the libraries we have considered, including EvilPlot, Cats, Simulacrum, Monocle, and Monix, are available for Scala.js as well as the usual JVM version of Scala. This makes it very easy to develop web applications which share code between the front and the back-end. It is particularly useful for developing web-based interactive dashboards for data science applications.
+* Try one of the [tutorials](https://www.scala-js.org/doc/tutorial/) to get started
 
 ### 8. Scala-native
 
+[Scala-native](https://github.com/scala-native/scala-native) is a framework for compiling Scala to native code, rather than JVM bytecode. This is useful for systems programming, for interfacing with C libraries, and for developing lightweight command-line tools. Although many people imagine that Scala code compiled to native code will execute much faster than JVM bytecode, this is typically not the case, and is certainly not the main intended use of Scala-native. See the [documentation](https://www.scala-native.org/) for further details.
 
 
 #### eof
