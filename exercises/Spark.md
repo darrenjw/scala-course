@@ -8,7 +8,7 @@
 
 ### 2. Review some Spark documentation
 
-* The official [Spark Documentation](http://spark.apache.org/docs/2.4.5/) is pretty good. Read through the [Quick start guide](http://spark.apache.org/docs/2.4.5/quick-start.html), then quickly skim the [Programming guide](http://spark.apache.org/docs/2.4.5/programming-guide.html), then the [ML guide](http://spark.apache.org/docs/2.4.5/ml-guide.html), especially the section on [Classification and regression](http://spark.apache.org/docs/2.4.5/ml-classification-regression.html). Briefly familiarise yourself with the [API docs](http://spark.apache.org/docs/2.4.5/api/scala/index.html#org.apache.spark.package).
+* The official [Spark Documentation](http://spark.apache.org/docs/2.4.5/) is pretty good. Read through the [Quick start guide](http://spark.apache.org/docs/2.4.5/quick-start.html), then quickly skim the [Programming guide](http://spark.apache.org/docs/2.4.5/rdd-programming-guide.html), then the [ML guide](http://spark.apache.org/docs/2.4.5/ml-guide.html), especially the section on [Classification and regression](http://spark.apache.org/docs/2.4.5/ml-classification-regression.html). Briefly familiarise yourself with the [API docs](http://spark.apache.org/docs/2.4.5/api/scala/index.html#org.apache.spark.package).
 
 ### 3. Logistic regression for the SpamBase dataset
 
