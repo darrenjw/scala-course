@@ -28,7 +28,7 @@ I've created a small library for fitting linear and generalised linear models, b
 [Smile](http://haifengl.github.io/) has lots of functionality relating to EDA, statistical modelling and machine learning, and can be used as a library from Scala. It's probably worth figuring out how to use it. I have an [example project](../examples/C6-Smile/) to show how to use it for a the yacht hydrodynamics linear regression example.
 
 * Run this example, and study the code to make sure you know how it works.
-* Adapt the code to analyse the airfoil self-noise data (from Exersice 1).
+* Adapt the code to analyse the airfoil self-noise data (from Exercise 1).
 * Write code to fit a logistic regression model to some simulated/synthetic data, and make sure that your Smile model recovers the true values used to simulate the data to a reasonable degree.
 * Try downloading and running Smile as a standalone piece of software, using the Smile shell/REPL.
 
