@@ -21,7 +21,10 @@ Again, choose selectively from these exercises according to interests and your p
 
 ### 4. Interfacing with Python
 
-* Not covered in the course, but it seems that calling Python from Scala is covered by the [ScalaPy](https://github.com/shadaj/scalapy) library. Calling Python machine learning libraries from Scala seems to be a standard use-case. Calling Scala from Python is less obvious. [pySpark](https://spark.apache.org/docs/latest/api/python/) uses [py4j](https://www.py4j.org/), which is a library for calling Java from Python, so that is probably as good a solution as any.
+Not covered in the course, but it seems that calling Python from Scala is covered by the [ScalaPy](https://github.com/shadaj/scalapy) library. Calling Python machine learning libraries from Scala seems to be a standard use-case. Calling Scala from Python is less obvious. [pySpark](https://spark.apache.org/docs/latest/api/python/) uses [py4j](https://www.py4j.org/), which is a library for calling Java from Python, so that is probably as good a solution as any.
+
+* See if you can figure out how to call Python from Scala.
+* If you get it working, see if you can call figure out how to call a [scikit-learn](https://scikit-learn.org/) function from Scala.
 
 ### 5. EvilPlot
 
