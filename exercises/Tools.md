@@ -19,7 +19,11 @@ Again, choose selectively from these exercises according to interests and your p
 * One way we could check that our logistic regression code is working as it should would be to read in or simulate a fairly small dataset and fit it with our code, then send the dataset to R and re-fit it with the `glm` function in R. Then bring the fitted coefficients back to Scala for comparison. Take a look at the tests for the [scala-glm](https://github.com/darrenjw/scala-glm/) library, which uses exactly this strategy.
 * If you are using simulated data, you could easily loop this to check for agreement on a range of small simulated datasets (ideally using ScalaCheck).
 
-### 4. EvilPlot
+### 4. Interfacing with Python
+
+* Not covered in the course, but it seems that calling Python from Scala is covered by the [ScalaPy](https://github.com/shadaj/scalapy) library. Calling Python machine learning libraries from Scala seems to be a standard use-case. Calling Scala from Python is less obvious. [pySpark](https://spark.apache.org/docs/latest/api/python/) uses [py4j](https://www.py4j.org/), which is a library for calling Java from Python, so that is probably as good a solution as any.
+
+### 5. EvilPlot
 
 [EvilPlot](https://cibotech.github.io/evilplot/) is a nice library for generating high-quality plots and charts using Scala. I have an [example project](../examples/C7-EvilPlot/) which shows how to use it to generate a range of plots and charts, based mainly on examples from the EvilPlot documentation.
 
@@ -27,7 +31,7 @@ Again, choose selectively from these exercises according to interests and your p
 * Read through some of the EvilPlot documentation
 * Produce some nice charts and plots for one or more of the examples you have previously considered, such as a regression model, but previously charted using breeze-viz.
 
-### 5. Mdoc
+### 6. Mdoc
 
 [Mdoc](https://scalameta.org/mdoc/) is a great framework for documenting libraries and workflows using executable Scala code blocks within Markdown documents. A couple of the examples we have already seen had some mdoc documentation associated with them.
 
