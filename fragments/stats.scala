@@ -624,7 +624,7 @@ df3.write.format("com.databricks.spark.csv").
                          save("out-csv")
 
 
-"com.github.haifengl" %% "smile-scala" % "2.1.1"
+"com.github.haifengl" %% "smile-scala" % "2.2.1"
 
 
 val url = "http://archive.ics.uci.edu/ml/machine-learning-databases/00243/yacht_hydrodynamics.data"
