@@ -10,7 +10,7 @@ enablePlugins(MdocPlugin)
 
 libraryDependencies  ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.8" % "test",
-  "com.github.haifengl" %% "smile-scala" % "2.1.1"
+  "com.github.haifengl" %% "smile-scala" % "2.2.1"
 )
 
 resolvers ++= Seq(
@@ -20,5 +20,5 @@ resolvers ++= Seq(
     "https://oss.sonatype.org/content/repositories/releases/"
 )
 
-scalaVersion := "2.13.1"
+scalaVersion := "2.12.10"
 
